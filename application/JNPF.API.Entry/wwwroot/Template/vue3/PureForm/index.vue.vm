@@ -1,0 +1,46 @@
+<script lang="ts" setup>
+  import { onMounted } from 'vue';
+  import { usePopup } from '@@jnpf/ui/popup';
+  import FormPopup from './FormPopup.vue';
+  import { useRoute,useRouter } from 'vue-router';
+  import { useTabs } from '@@vben/hooks';
+  import { getFlowStartFormId } from '#/api/workFlow/template';
+
+  const router = useRouter();
+  const { closeCurrentTab } = useTabs();
+  const [registerFormPopup, { openPopup: openFormPopup }] = usePopup();
+@if(Model.HasFlow)
+{
+  @:function getFlowId(){
+      @:if(!state.flowId){
+        @:createMessage.error('流程模板的flowId未填写')
+        @:closeCurrentTab();
+        @:router.replace('/404');
+        @:return
+      @:}
+      @:getFlowStartFormId(state.flowId).then(res => {
+        @:init()
+      @:}).catch(() => {
+        @:closeCurrentTab();
+        @:router.replace('/404');
+      @:});
+    @:}
+}
+  function init() {
+    openFormPopup(true, {});
+  }
+
+  onMounted(() => {
+@if(Model.HasFlow){
+    @:getFlowId();
+}else{
+    @:init();
+}
+  });
+</script>
+
+<template>
+  <div class="jnpf-content-wrapper bg-white">
+    <FormPopup @@register="registerFormPopup" />
+  </div>
+</template>

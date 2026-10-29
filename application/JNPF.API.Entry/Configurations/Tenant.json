@@ -1,0 +1,7 @@
+{
+  "Tenant": {
+    "MultiTenancy": false,
+    "MultiTenancyType": "SCHEMA", //COLUMN SCHEMA
+    "MultiTenancyDBInterFace": "http://192.168.20.120:5100/api/tenant/DbName/"
+  }
+}

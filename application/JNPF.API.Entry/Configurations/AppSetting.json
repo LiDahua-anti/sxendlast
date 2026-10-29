@@ -1,0 +1,7 @@
+{
+  "AppSettings": {
+    "InjectMiniProfiler": true,
+    // 是否启用 Swagger 文档
+    //"InjectSpecificationDocument": true
+  }
+}

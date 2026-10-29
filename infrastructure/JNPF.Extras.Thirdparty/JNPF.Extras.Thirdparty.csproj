@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<Description>JNPF 第三方组件拓展插件。</Description>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AlibabaCloud.SDK.Dysmsapi20170525" Version="3.0.0" />
+		<PackageReference Include="DingDing.SDK.NetCore" Version="2021.1.7.1" />
+		<PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+		<PackageReference Include="JavaScriptEngineSwitcher.ChakraCore" Version="3.26.0" />
+		<PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.win-x64" Version="3.26.0" />
+		<PackageReference Include="JavaScriptEngineSwitcher.V8" Version="3.24.2" />
+		<PackageReference Include="JavaScriptEngineSwitcher.V8.Native.linux-x64" Version="3.24.2" />
+		<PackageReference Include="JavaScriptEngineSwitcher.V8.Native.win-x64" Version="3.24.2" />
+		<PackageReference Include="log4net" Version="3.0.3" />
+		<PackageReference Include="MailKit" Version="4.7.1.1" />
+		<PackageReference Include="OnceMi.AspNetCore.OSS" Version="1.2.0" />
+		<PackageReference Include="Senparc.Weixin.MP" Version="16.22.1" />
+		<PackageReference Include="Senparc.Weixin.Work" Version="3.22.2" />
+		<PackageReference Include="TencentCloudSDK.Sms" Version="3.0.1071" />
+	</ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' != 'net8.0' ">
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\modularity\common\JNPF.Common\JNPF.Common.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="Roslynator.Analyzers" Version="4.12.4">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	</ItemGroup>
+
+</Project>

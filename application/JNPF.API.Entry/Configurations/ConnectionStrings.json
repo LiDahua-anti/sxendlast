@@ -1,0 +1,53 @@
+ {
+   "ConnectionStrings": {
+     "ConnectionConfigs": [
+       {
+         "ConfigId": "default",
+         "DBName": "sx_release",
+         "DBType": "MySql", //MySql;SqlServer;Oracle;PostgreSQL;Dm;Kdbndp;Sqlite;
+         "Host": "192.168.31.112",
+         "Port": "3309",
+         "UserName": "root",
+         "Password": "root@1234;Max Pool Size=200;",
+         "DBSchema": "public"
+       },
+       {
+         "ConfigId": "JNPF-Job", // 不可修改
+         "DBName": "sx_release",
+         "DBType": "MySql", //MySql;SqlServer;Oracle;PostgreSQL;Dm;Kdbndp;Sqlite;
+         "Host": "192.168.31.112",
+         "Port": "3309",
+         "UserName": "root",
+         "Password": "root@1234;Max Pool Size=200;",
+         "DBSchema": "public"
+       }
+     ]
+   }
+ }
+
+//{
+//  "ConnectionStrings": {
+//    "ConnectionConfigs": [
+//      {
+//        "ConfigId": "default",
+//        "DBName": "sx_release",
+//        "DBType": "MySql", //MySql;SqlServer;Oracle;PostgreSQL;Dm;Kdbndp;Sqlite;
+//        "Host": "localhost",
+//        "Port": "3306",
+//        "UserName": "root",
+//        "Password": "123456;Max Pool Size=200;",
+//        "DBSchema": "public"
+//      },
+//      {
+//        "ConfigId": "JNPF-Job", // 不可修改
+//        "DBName": "sx_release",
+//        "DBType": "MySql", //MySql;SqlServer;Oracle;PostgreSQL;Dm;Kdbndp;Sqlite;
+//        "Host": "localhost",
+//        "Port": "3306",
+//        "UserName": "root",
+//        "Password": "123456;Max Pool Size=200;",
+//        "DBSchema": "public"
+//      }
+//    ]
+//  }
+//}

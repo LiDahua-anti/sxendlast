@@ -1,0 +1,1413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Flowable接口:{0}失败" xml:space="preserve">
+    <value>Flowable interface: {0} failed</value>
+  </data>
+  <data name="Id不能为空" xml:space="preserve">
+    <value>The Id cannot be empty</value>
+  </data>
+  <data name="Sql不能为空" xml:space="preserve">
+    <value>Sql cannot be empty.</value>
+  </data>
+  <data name="SQL语句仅支持查询语句" xml:space="preserve">
+    <value>SQL statements only support query statements</value>
+  </data>
+  <data name="SQL语句需带上@formid条件" xml:space="preserve">
+    <value>SQL statements need to bring the @formid condition</value>
+  </data>
+  <data name="Sql语法错误" xml:space="preserve">
+    <value>Sql syntax error</value>
+  </data>
+  <data name="Sql语法错误 : {0}" xml:space="preserve">
+    <value>Sql syntax error: {0}</value>
+  </data>
+  <data name="Token验证失败" xml:space="preserve">
+    <value>Token authentication failed</value>
+  </data>
+  <data name="userKey不匹配,请填写正确的userKey" xml:space="preserve">
+    <value>UserKey does not match, please fill in the correct userKey</value>
+  </data>
+  <data name="{0} 不能重复" xml:space="preserve">
+    <value>{0} cannot be repeated</value>
+  </data>
+  <data name="{0} 命名不符合规范" xml:space="preserve">
+    <value>{0} The naming does not conform to the specification</value>
+  </data>
+  <data name="{0}不能重复" xml:space="preserve">
+    <value>{0} cannot be repeated</value>
+  </data>
+  <data name="{0}为子流程不能删除" xml:space="preserve">
+    <value>{0} is a sub-process that cannot be deleted.</value>
+  </data>
+  <data name="{0}发送失败,失败原因:{1}" xml:space="preserve">
+    <value>{0} Failed to send, reason for failure: {1}</value>
+  </data>
+  <data name="{0}没有删除权限" xml:space="preserve">
+    <value>{0} No permission to delete</value>
+  </data>
+  <data name="{0}流程已被挂起不能删除!" xml:space="preserve">
+    <value>The {0} process has been suspended and cannot be deleted!</value>
+  </data>
+  <data name="{0}表缺失主键" xml:space="preserve">
+    <value>The {0} table is missing a primary key</value>
+  </data>
+  <data name="上传失败，图片格式不允许上传" xml:space="preserve">
+    <value>Upload failed. The image format cannot be uploaded</value>
+  </data>
+  <data name="上传失败，文件格式不允许上传" xml:space="preserve">
+    <value>Upload failed. The file format cannot be uploaded</value>
+  </data>
+  <data name="上级不能为空" xml:space="preserve">
+    <value>The superior can't be empty.</value>
+  </data>
+  <data name="上级分类不存在,无法导入" xml:space="preserve">
+    <value>The upper-level category does not exist and cannot be imported</value>
+  </data>
+  <data name="下一节点无审批人员请联系管理员!" xml:space="preserve">
+    <value>If there is no approver in the next node, please contact the administrator!</value>
+  </data>
+  <data name="不是超管账号无权限变更角色信息" xml:space="preserve">
+    <value>It's not that the super management account has no permission to change role information</value>
+  </data>
+  <data name="不是超管账号无法批量设置权限" xml:space="preserve">
+    <value>It is not an overmanaged account that cannot set permissions in batches</value>
+  </data>
+  <data name="不能加签给自己" xml:space="preserve">
+    <value>Cannot add a signature to oneself</value>
+  </data>
+  <data name="不能协办给自己" xml:space="preserve">
+    <value>Cannot co organize for oneself</value>
+  </data>
+  <data name="不能移动根节点" xml:space="preserve">
+    <value>The root node cannot be moved</value>
+  </data>
+  <data name="不能转审给自己" xml:space="preserve">
+    <value>Cannot transfer the review to oneself</value>
+  </data>
+  <data name="主系统不允许更改应用编码" xml:space="preserve">
+    <value>The main system does not allow changing the application encoding</value>
+  </data>
+  <data name="主系统不允许禁用" xml:space="preserve">
+    <value>The primary system cannot be disabled</value>
+  </data>
+  <data name="主表未设置主键字段" xml:space="preserve">
+    <value>The primary key field is not set in the primary table</value>
+  </data>
+  <data name="主键不能为空" xml:space="preserve">
+    <value>The primary key cannot be empty.</value>
+  </data>
+  <data name="主键策略:[{0}],表[ {1} ]主键设置不支持!" xml:space="preserve">
+    <value>Primary key policy :[{0}], Table [ {1} ] Primary key Settings are not supported!</value>
+  </data>
+  <data name="任务调度不存在" xml:space="preserve">
+    <value>Task scheduling does not exist.</value>
+  </data>
+  <data name="修改个人头像失败" xml:space="preserve">
+    <value>Failed to modify personal profile picture</value>
+  </data>
+  <data name="修改切换岗位失败" xml:space="preserve">
+    <value>Description Failed to modify or switch positions</value>
+  </data>
+  <data name="修改切换组织失败" xml:space="preserve">
+    <value>Description Failed to modify the failover organization</value>
+  </data>
+  <data name="修改切换角色失败" xml:space="preserve">
+    <value>Description Failed to modify the switchover role</value>
+  </data>
+  <data name="修改失败，新建密码不能与旧密码一样" xml:space="preserve">
+    <value>The new password cannot be the same as the old password</value>
+  </data>
+  <data name="修改密码失败" xml:space="preserve">
+    <value>Failed to change the password</value>
+  </data>
+  <data name="修改数据失败" xml:space="preserve">
+    <value>Failed to modify data</value>
+  </data>
+  <data name="修改日程失败" xml:space="preserve">
+    <value>Failed to modify the schedule</value>
+  </data>
+  <data name="修改日程日志失败" xml:space="preserve">
+    <value>Failed to modify the schedule log</value>
+  </data>
+  <data name="修改状态失败" xml:space="preserve">
+    <value>Failed to modify the status</value>
+  </data>
+  <data name="修改系统主题失败" xml:space="preserve">
+    <value>Failed to modify the system topic</value>
+  </data>
+  <data name="修改系统语言失败" xml:space="preserve">
+    <value>Failed to modify the system language</value>
+  </data>
+  <data name="修改表失败" xml:space="preserve">
+    <value>Failed to modify the table</value>
+  </data>
+  <data name="分组删除失败" xml:space="preserve">
+    <value>Group deletion failed</value>
+  </data>
+  <data name="分组名称已存在" xml:space="preserve">
+    <value>Group name already exists</value>
+  </data>
+  <data name="分组更新失败" xml:space="preserve">
+    <value>Group update failed</value>
+  </data>
+  <data name="分组编码已存在" xml:space="preserve">
+    <value>Group code already exists</value>
+  </data>
+  <data name="切换失败，当前系统已被管理员禁用" xml:space="preserve">
+    <value>The switchover failed. The current system has been disabled by the administrator</value>
+  </data>
+  <data name="列名超过规定长度" xml:space="preserve">
+    <value>The list exceeds the specified length</value>
+  </data>
+  <data name="删除分级失败" xml:space="preserve">
+    <value>Failed to delete a tier</value>
+  </data>
+  <data name="删除失败! 已绑定用户" xml:space="preserve">
+    <value>Failed to delete! Binded users</value>
+  </data>
+  <data name="删除失败,该文件夹下存在数据" xml:space="preserve">
+    <value>Failed to delete the folder because data exists in the folder</value>
+  </data>
+  <data name="删除失败，请先删除子菜单" xml:space="preserve">
+    <value>The deletion failed, please delete the submenu first.</value>
+  </data>
+  <data name="删除失败，请先删除该应用下的菜单" xml:space="preserve">
+    <value>The deletion failed. Please delete the menu under the app first.</value>
+  </data>
+  <data name="删除失败，请先删除该应用下的菜单和门户" xml:space="preserve">
+    <value>The deletion failed, please delete the menu and portal under the application first.</value>
+  </data>
+  <data name="删除失败，请先删除该应用下的门户" xml:space="preserve">
+    <value>The deletion failed. Please delete the portal under the application first.</value>
+  </data>
+  <data name="删除岗位失败" xml:space="preserve">
+    <value>Delete position failed</value>
+  </data>
+  <data name="删除数据失败" xml:space="preserve">
+    <value>Failed to delete data</value>
+  </data>
+  <data name="删除日程参与人失败" xml:space="preserve">
+    <value>Failed to delete the schedule participants</value>
+  </data>
+  <data name="删除日程失败" xml:space="preserve">
+    <value>Failed to delete the schedule</value>
+  </data>
+  <data name="删除日程日志失败" xml:space="preserve">
+    <value>Failed to delete the schedule log</value>
+  </data>
+  <data name="删除机构失败" xml:space="preserve">
+    <value>Failed to delete organization</value>
+  </data>
+  <data name="删除权限组失败" xml:space="preserve">
+    <value>Failed to delete permission group</value>
+  </data>
+  <data name="删除表失败" xml:space="preserve">
+    <value>Failed to delete table</value>
+  </data>
+  <data name="删除部门失败" xml:space="preserve">
+    <value>Failed to delete a department</value>
+  </data>
+  <data name="单据规则已引用，无法删除" xml:space="preserve">
+    <value>The document rules have been referenced and cannot be deleted</value>
+  </data>
+  <data name="参数类型错误" xml:space="preserve">
+    <value>Incorrect parameter type</value>
+  </data>
+  <data name="发布失败,流程未设计" xml:space="preserve">
+    <value>Release failed, process not designed</value>
+  </data>
+  <data name="发送失败,失败原因:{0}邮箱账号为空" xml:space="preserve">
+    <value>Failed to send, reason for failure: {0} Email account is empty</value>
+  </data>
+  <data name="发送失败,失败原因:{0}邮箱账号格式不正确" xml:space="preserve">
+    <value>Failed to send, reason for failure: {0} mailbox account format is incorrect</value>
+  </data>
+  <data name="发送失败,失败原因:发件人邮箱配置错误" xml:space="preserve">
+    <value>Sending failure, reason for failure: sender's mailbox configuration error</value>
+  </data>
+  <data name="变量名不能包含敏感字符" xml:space="preserve">
+    <value>Variable names cannot contain sensitive characters.</value>
+  </data>
+  <data name="变量名已存在" xml:space="preserve">
+    <value>Variable name already exists</value>
+  </data>
+  <data name="只能增加下级机构" xml:space="preserve">
+    <value>You can only add subordinate organizations</value>
+  </data>
+  <data name="只能生成有表模板" xml:space="preserve">
+    <value>Only templates with tables can be generated</value>
+  </data>
+  <data name="同一数据库无法同步数据！" xml:space="preserve">
+    <value>Data cannot be synchronized in the same database!</value>
+  </data>
+  <data name="同步失败" xml:space="preserve">
+    <value>Synchronization failure</value>
+  </data>
+  <data name="同步失败,检查编码或名称是否重复" xml:space="preserve">
+    <value>Synchronization failed, check for duplicate encoding or name</value>
+  </data>
+  <data name="同步数据保存失败" xml:space="preserve">
+    <value>Failed to save synchronization data. Procedure</value>
+  </data>
+  <data name="同步数据修改失败" xml:space="preserve">
+    <value>Synchronizing data failed to be modified. Procedure</value>
+  </data>
+  <data name="同步门户失败" xml:space="preserve">
+    <value>Synchronization portal failed</value>
+  </data>
+  <data name="名称重复" xml:space="preserve">
+    <value>Duplicate names</value>
+  </data>
+  <data name="名称重复，请重新输入" xml:space="preserve">
+    <value>The name is duplicated, please re-enter it.</value>
+  </data>
+  <data name="启用失败，流程未配置！" xml:space="preserve">
+    <value>The enablement failed, and the process was not configured!</value>
+  </data>
+  <data name="回滚失败,未能找到线上版本" xml:space="preserve">
+    <value>Rollback failed. The online version could not be found</value>
+  </data>
+  <data name="复制流程引擎失败" xml:space="preserve">
+    <value>Copy process engine failed</value>
+  </data>
+  <data name="委托人和被委托人相同，委托失败" xml:space="preserve">
+    <value>The client and the client are the same, and the entrustment fails.</value>
+  </data>
+  <data name="子流程无法指派" xml:space="preserve">
+    <value>The subprocess cannot be assigned.</value>
+  </data>
+  <data name="子流程无法撤回" xml:space="preserve">
+    <value>The subprocess cannot be withdrawn.</value>
+  </data>
+  <data name="子流程自动发起审批失败" xml:space="preserve">
+    <value>The subprocess automatically initiates and fails to approve.</value>
+  </data>
+  <data name="子表名称不能重复" xml:space="preserve">
+    <value>The sub table name cannot be duplicated</value>
+  </data>
+  <data name="字典值不存在" xml:space="preserve">
+    <value>The dictionary value does not exist</value>
+  </data>
+  <data name="字典值已存在,名称或编码重复" xml:space="preserve">
+    <value>The dictionary value already exists, the name or encoding is duplicate</value>
+  </data>
+  <data name="字典状态错误" xml:space="preserve">
+    <value>Dictionary status error</value>
+  </data>
+  <data name="字典类型下面有字典值禁止删除" xml:space="preserve">
+    <value>The dictionary type contains dictionary values that cannot be deleted</value>
+  </data>
+  <data name="字典类型不存在" xml:space="preserve">
+    <value>The dictionary type does not exist</value>
+  </data>
+  <data name="字典类型已存在,名称或编码重复" xml:space="preserve">
+    <value>The dictionary type already exists with a duplicate name or encoding</value>
+  </data>
+  <data name="字段已被方案引用，请先删除{0}方案" xml:space="preserve">
+    <value>The field has been referenced by the scheme, please delete the {0} scheme first</value>
+  </data>
+  <data name="字段规范名称不能重复" xml:space="preserve">
+    <value>Field specification name cannot be duplicated</value>
+  </data>
+  <data name="审批异常无法撤销" xml:space="preserve">
+    <value>Approval exception cannot be revoked</value>
+  </data>
+  <data name="密码不一致" xml:space="preserve">
+    <value>Password inconsistency</value>
+  </data>
+  <data name="密码错误" xml:space="preserve">
+    <value>Password error</value>
+  </data>
+  <data name="导入失败" xml:space="preserve">
+    <value>Import failure</value>
+  </data>
+  <data name="导入失败：{0}" xml:space="preserve">
+    <value>Import failure: {0}</value>
+  </data>
+  <data name="导入文件功能类型错误" xml:space="preserve">
+    <value>The file import function type is incorrect</value>
+  </data>
+  <data name="导入文件格式错误" xml:space="preserve">
+    <value>The imported file format is incorrect</value>
+  </data>
+  <data name="导入的文件是空数据" xml:space="preserve">
+    <value>The imported file is empty data</value>
+  </data>
+  <data name="岗位名称已存在" xml:space="preserve">
+    <value>Position name already exists</value>
+  </data>
+  <data name="岗位编码已存在" xml:space="preserve">
+    <value>Position code already exists</value>
+  </data>
+  <data name="工作交接无法转交给本人" xml:space="preserve">
+    <value>The work handover cannot be transferred to me.</value>
+  </data>
+  <data name="工作交接无法转交给管理员" xml:space="preserve">
+    <value>The work handover cannot be transferred to the administrator.</value>
+  </data>
+  <data name="已到达该模板复制上限，请复制源模板" xml:space="preserve">
+    <value>The replication limit of this template has been reached. Please copy the source template</value>
+  </data>
+  <data name="已存在同名任务调度" xml:space="preserve">
+    <value>Task scheduling with the same name already exists</value>
+  </data>
+  <data name="已存在同名或同主机租户" xml:space="preserve">
+    <value>A host tenant with the same name or name exists</value>
+  </data>
+  <data name="已存在同名或同编码参数配置" xml:space="preserve">
+    <value>A parameter with the same name or code has been configured</value>
+  </data>
+  <data name="已存在同名或同编码数据" xml:space="preserve">
+    <value>Data with the same name or encoding already exists</value>
+  </data>
+  <data name="已存在同名或同编码项目" xml:space="preserve">
+    <value>A project with the same name or encoding already exists</value>
+  </data>
+  <data name="已存在同名文件" xml:space="preserve">
+    <value>A file with the same name exists. Procedure</value>
+  </data>
+  <data name="已存在相同功能" xml:space="preserve">
+    <value>The same function already exists</value>
+  </data>
+  <data name="已存在相同证件号码人员" xml:space="preserve">
+    <value>A person with the same ID number already exists</value>
+  </data>
+  <data name="常用数据已存在" xml:space="preserve">
+    <value>Commonly used data already exist.</value>
+  </data>
+  <data name="应用不存在" xml:space="preserve">
+    <value>The application does not exist.</value>
+  </data>
+  <data name="应用不能为空" xml:space="preserve">
+    <value>The application cannot be empty.</value>
+  </data>
+  <data name="当前导入菜单为APP端菜单，请在对应模块下导入！" xml:space="preserve">
+    <value>The current import menu is the APP side menu, please import it in the corresponding module!</value>
+  </data>
+  <data name="当前导入菜单为Web端菜单，请在对应模块下导入！" xml:space="preserve">
+    <value>The current import menu is the Web side menu, please import it in the corresponding module!</value>
+  </data>
+  <data name="当前机构Id不能与父机构Id相同" xml:space="preserve">
+    <value>The current organization Id cannot be the same as the parent organization Id</value>
+  </data>
+  <data name="当前流程不经过该驳回节点!" xml:space="preserve">
+    <value>The current process does not go through the rejection node!</value>
+  </data>
+  <data name="当前流程包含子流程,无法撤回" xml:space="preserve">
+    <value>The current process contains sub-processes and cannot be withdrawn.</value>
+  </data>
+  <data name="当前流程正在运行不能重复保存" xml:space="preserve">
+    <value>The current process is running and cannot be saved repeatedly.</value>
+  </data>
+  <data name="当前流程被处理，无法审批" xml:space="preserve">
+    <value>The current process is processed and cannot be approved.</value>
+  </data>
+  <data name="当前目录存在数据,不能修改类型" xml:space="preserve">
+    <value>The type of the current directory cannot be changed because data exists in the directory</value>
+  </data>
+  <data name="当前节点无法操作" xml:space="preserve">
+    <value>The current node cannot operate.</value>
+  </data>
+  <data name="当前表单原数据已被调整,请重新进入该页面编辑并提交数据" xml:space="preserve">
+    <value>The original data of the current form has been adjusted. Please enter the page again to edit and submit the data</value>
+  </data>
+  <data name="当前表单原数据已被调整，请重新进入该页面编辑并提交数据" xml:space="preserve">
+    <value>The original data of the current form has been adjusted. Please enter the page again to edit and submit the data</value>
+  </data>
+  <data name="待功能完善" xml:space="preserve">
+    <value>To be fully functional</value>
+  </data>
+  <data name="必要参数不能为空" xml:space="preserve">
+    <value>Necessary parameters cannot be empty</value>
+  </data>
+  <data name="必须保留一名审批人" xml:space="preserve">
+    <value>An approver must be retained</value>
+  </data>
+  <data name="您没有发起委托流程" xml:space="preserve">
+    <value>You do not have permission to initiate the process.</value>
+  </data>
+  <data name="您没有发起该流程的权限" xml:space="preserve">
+    <value>You do not have the authority to initiate this process</value>
+  </data>
+  <data name="您没有此门户使用权限，请重新设置" xml:space="preserve">
+    <value>You do not have permission to use this portal, please reset</value>
+  </data>
+  <data name="所选流程包含条件候选人" xml:space="preserve">
+    <value>The selected process contains conditional candidates.</value>
+  </data>
+  <data name="打印模板不存在" xml:space="preserve">
+    <value>The print template does not exist</value>
+  </data>
+  <data name="打开方式为空" xml:space="preserve">
+    <value>The open mode is empty</value>
+  </data>
+  <data name="找不到该上级" xml:space="preserve">
+    <value>I can't find the superior.</value>
+  </data>
+  <data name="找不到该应用" xml:space="preserve">
+    <value>The app could not be found</value>
+  </data>
+  <data name="指派失败" xml:space="preserve">
+    <value>Assignment Failed</value>
+  </data>
+  <data name="接口授权已过期" xml:space="preserve">
+    <value>Interface authorization has expired</value>
+  </data>
+  <data name="接口未授权" xml:space="preserve">
+    <value>The interface is not authorized</value>
+  </data>
+  <data name="接口请求失败" xml:space="preserve">
+    <value>Interface request failed</value>
+  </data>
+  <data name="接口请求失败或接口数据异常" xml:space="preserve">
+    <value>Interface request failure or interface data is abnormal</value>
+  </data>
+  <data name="操作失败" xml:space="preserve">
+    <value>Operation failure</value>
+  </data>
+  <data name="操作失败,无法移动同一文件下" xml:space="preserve">
+    <value>Operation failed. Could not move the same file</value>
+  </data>
+  <data name="操作失败,父级文件夹无法移动到子级文件夹中" xml:space="preserve">
+    <value>Operation failed. The parent folder could not be moved to the child folder</value>
+  </data>
+  <data name="操作失败！您没有权限操作" xml:space="preserve">
+    <value>Operation failed! You do not have permission to operate</value>
+  </data>
+  <data name="操作失败，同一时间内有相同流程的委托！" xml:space="preserve">
+    <value>The operation fails, and there is a commission of the same process at the same time!</value>
+  </data>
+  <data name="操作失败，同一时间内有相同流程，不能相互委托！" xml:space="preserve">
+    <value>The operation fails, and there is the same process at the same time. You can't entrust each other!</value>
+  </data>
+  <data name="操作失败，未配置导出模板" xml:space="preserve">
+    <value>The operation failed because the export template is not configured</value>
+  </data>
+  <data name="操作成功" xml:space="preserve">
+    <value>Successful operation</value>
+  </data>
+  <data name="数据不存在" xml:space="preserve">
+    <value>Data does not exist</value>
+  </data>
+  <data name="数据不存在或含有关联引用，禁止删除" xml:space="preserve">
+    <value>Data does not exist or contains an associated reference, and cannot be deleted</value>
+  </data>
+  <data name="数据传递失败，流程表单模板未找到！" xml:space="preserve">
+    <value>Data transmission failed, and the process form template was not found!</value>
+  </data>
+  <data name="数据已存在" xml:space="preserve">
+    <value>Data already exists</value>
+  </data>
+  <data name="数据库异常，请用手机验证登录！" xml:space="preserve">
+    <value>Database exception, please use mobile phone verification login!</value>
+  </data>
+  <data name="数据库类型不支持" xml:space="preserve">
+    <value>Database type is not supported</value>
+  </data>
+  <data name="数据库类型不支持自增长ID" xml:space="preserve">
+    <value>The database type does not support self-growth ID.</value>
+  </data>
+  <data name="数据库连接不能相同" xml:space="preserve">
+    <value>The database connection cannot be the same.</value>
+  </data>
+  <data name="数据库连接失败" xml:space="preserve">
+    <value>Database connection failed</value>
+  </data>
+  <data name="数据读取错误" xml:space="preserve">
+    <value>Data reading error</value>
+  </data>
+  <data name="数据超过1000条" xml:space="preserve">
+    <value>More than 1000 pieces of data</value>
+  </data>
+  <data name="数据集名称已存在" xml:space="preserve">
+    <value>Dataset name already exists</value>
+  </data>
+  <data name="文件上传失败" xml:space="preserve">
+    <value>File upload failure</value>
+  </data>
+  <data name="文件下载失败" xml:space="preserve">
+    <value>File download failure</value>
+  </data>
+  <data name="文件下载失败,链接已失效" xml:space="preserve">
+    <value>File download failed, link is invalid</value>
+  </data>
+  <data name="文件不存在" xml:space="preserve">
+    <value>File does not exist</value>
+  </data>
+  <data name="文件删除失败" xml:space="preserve">
+    <value>File deletion failure</value>
+  </data>
+  <data name="文件夹名称不能重复" xml:space="preserve">
+    <value>Folder names cannot be duplicated.</value>
+  </data>
+  <data name="文件存储路径错误" xml:space="preserve">
+    <value>Incorrect file storage path</value>
+  </data>
+  <data name="文件或者图片上传控件的 [文件大小] 必须输入" xml:space="preserve">
+    <value>The file size of the file or image upload control must be entered</value>
+  </data>
+  <data name="文件格式不正确" xml:space="preserve">
+    <value>Incorrect file format</value>
+  </data>
+  <data name="文件流获取失败" xml:space="preserve">
+    <value>Failed to obtain the file flow. Procedure</value>
+  </data>
+  <data name="新增分级管理失败" xml:space="preserve">
+    <value>Failed to add tier management</value>
+  </data>
+  <data name="新增分组失败" xml:space="preserve">
+    <value>Failed to add group</value>
+  </data>
+  <data name="新增失败，已超过租户设定账号额度" xml:space="preserve">
+    <value>The addition failed, and the tenant's account limit has been exceeded.</value>
+  </data>
+  <data name="新增字段失败" xml:space="preserve">
+    <value>New field failed</value>
+  </data>
+  <data name="新增岗位失败" xml:space="preserve">
+    <value>Failed to add new position</value>
+  </data>
+  <data name="新增数据失败" xml:space="preserve">
+    <value>Failed to add data</value>
+  </data>
+  <data name="新增机构失败" xml:space="preserve">
+    <value>Failed to add an organization</value>
+  </data>
+  <data name="新增权限组失败" xml:space="preserve">
+    <value>Failed to add permission group</value>
+  </data>
+  <data name="新增表失败" xml:space="preserve">
+    <value>Failed to add table</value>
+  </data>
+  <data name="新增部门失败" xml:space="preserve">
+    <value>Failed to add a department</value>
+  </data>
+  <data name="新建角色失败" xml:space="preserve">
+    <value>New role creation failed</value>
+  </data>
+  <data name="无效链接" xml:space="preserve">
+    <value>Invalid link</value>
+  </data>
+  <data name="无权限访问" xml:space="preserve">
+    <value>No access</value>
+  </data>
+  <data name="无法修改管理员账户" xml:space="preserve">
+    <value>The administrator account cannot be modified</value>
+  </data>
+  <data name="无法禁用超级管理员" xml:space="preserve">
+    <value>The super administrator cannot be disabled</value>
+  </data>
+  <data name="无法设置当前用户为分级管理员" xml:space="preserve">
+    <value>Unable to set the current user as a hierarchical administrator</value>
+  </data>
+  <data name="无法设置当前用户操作权限" xml:space="preserve">
+    <value>The operation rights of the current user cannot be set</value>
+  </data>
+  <data name="无法设置超管为分级管理员" xml:space="preserve">
+    <value>Unable to set the super management as a hierarchical administrator</value>
+  </data>
+  <data name="无表转有表失败" xml:space="preserve">
+    <value>Description Failed to transfer a table from no table to a table</value>
+  </data>
+  <data name="无该组织权限!" xml:space="preserve">
+    <value>No organization permission!</value>
+  </data>
+  <data name="旧密码输入错误" xml:space="preserve">
+    <value>The old password was entered incorrectly</value>
+  </data>
+  <data name="旧密码错误，请重新输入" xml:space="preserve">
+    <value>Old password is wrong, please re-enter</value>
+  </data>
+  <data name="暂无未读消息" xml:space="preserve">
+    <value>No unread messages yet</value>
+  </data>
+  <data name="更新失败! 已绑定用户，无法修改状态" xml:space="preserve">
+    <value>The update failed! The user has been bound and cannot modify the status.</value>
+  </data>
+  <data name="更新失败，主系统不允许修改编码" xml:space="preserve">
+    <value>The update failed, and the main system is not allowed to modify the code.</value>
+  </data>
+  <data name="更新失败，主系统不允许禁用" xml:space="preserve">
+    <value>The update failed, and the main system does not allow it to be disabled.</value>
+  </data>
+  <data name="更新岗位失败" xml:space="preserve">
+    <value>Failed to update position</value>
+  </data>
+  <data name="更新岗位状态失败" xml:space="preserve">
+    <value>Failed to update position status</value>
+  </data>
+  <data name="更新机构失败" xml:space="preserve">
+    <value>Update organization failure</value>
+  </data>
+  <data name="更新机构状态失败" xml:space="preserve">
+    <value>Description Failed to update the organization status</value>
+  </data>
+  <data name="更新账户状态失败" xml:space="preserve">
+    <value>Description Failed to update the account status</value>
+  </data>
+  <data name="更新部门失败" xml:space="preserve">
+    <value>Department update failure</value>
+  </data>
+  <data name="更新部门状态失败" xml:space="preserve">
+    <value>Description Failed to update the department status</value>
+  </data>
+  <data name="更新门户布局失败" xml:space="preserve">
+    <value>Failed to update the portal layout</value>
+  </data>
+  <data name="未关注公众号" xml:space="preserve">
+    <value>Not following the official account</value>
+  </data>
+  <data name="未填写userKey,请确认" xml:space="preserve">
+    <value>UserKey is not filled in, please confirm</value>
+  </data>
+  <data name="未找到催办人" xml:space="preserve">
+    <value>No urging found</value>
+  </data>
+  <data name="未设置邮箱账户" xml:space="preserve">
+    <value>No email account has been set</value>
+  </data>
+  <data name="未配置第三方关联引用" xml:space="preserve">
+    <value>Third-party associated references are not configured</value>
+  </data>
+  <data name="机构不存在" xml:space="preserve">
+    <value>Organization does not exist</value>
+  </data>
+  <data name="机构主管不能删除" xml:space="preserve">
+    <value>The organizational supervisor cannot be deleted</value>
+  </data>
+  <data name="机构名称已存在" xml:space="preserve">
+    <value>The organization name already exists</value>
+  </data>
+  <data name="机构编码已存在" xml:space="preserve">
+    <value>The organization code already exists</value>
+  </data>
+  <data name="权限不存在" xml:space="preserve">
+    <value>Permission does not exist</value>
+  </data>
+  <data name="权限标识格式为空" xml:space="preserve">
+    <value>The permission identifier format is empty</value>
+  </data>
+  <data name="权限标识格式错误" xml:space="preserve">
+    <value>The permission identifier format is incorrect</value>
+  </data>
+  <data name="条件不满足,操作失败" xml:space="preserve">
+    <value>The conditions are not met, and the operation fails.</value>
+  </data>
+  <data name="检测数据不存在" xml:space="preserve">
+    <value>The detection data does not exist</value>
+  </data>
+  <data name="检测数据不存在,同步数据失败" xml:space="preserve">
+    <value>The detection data does not exist, and data synchronization fails. Procedure</value>
+  </data>
+  <data name="模块键值已存在" xml:space="preserve">
+    <value>The module key already exists</value>
+  </data>
+  <data name="模板主键策略与表主键策略不同" xml:space="preserve">
+    <value>The template primary key policy is different from the table primary key policy</value>
+  </data>
+  <data name="模板内表不存在" xml:space="preserve">
+    <value>The table in the template does not exist</value>
+  </data>
+  <data name="正在修复中" xml:space="preserve">
+    <value>Repairing</value>
+  </data>
+  <data name="此IP未在白名单中" xml:space="preserve">
+    <value>This IP address is not in the whitelist</value>
+  </data>
+  <data name="此记录与消息发送配置关联引用,不允许被删除" xml:space="preserve">
+    <value>This record is associated with the message sending configuration and is not allowed to be deleted.</value>
+  </data>
+  <data name="此记录与消息发送配置关联引用,不允许被禁用" xml:space="preserve">
+    <value>This record is associated with the message sending configuration and is not allowed to be disabled.</value>
+  </data>
+  <data name="此记录被“【{0}】应用门户”关联引用，不允许被删除" xml:space="preserve">
+    <value>This record is referenced by the "[{0}] Application Portal" and is not allowed to be deleted.</value>
+  </data>
+  <data name="没有权限" xml:space="preserve">
+    <value>Have no authority</value>
+  </data>
+  <data name="没有权限操作该数据" xml:space="preserve">
+    <value>No permission to manipulate this data</value>
+  </data>
+  <data name="没有编辑超管账号的权限" xml:space="preserve">
+    <value>There is no permission to edit the super account</value>
+  </data>
+  <data name="流程处于挂起状态，不可操作!" xml:space="preserve">
+    <value>The process is in a pending state and cannot be operated!</value>
+  </data>
+  <data name="流程已受理，无法删除" xml:space="preserve">
+    <value>The process has been accepted and cannot be deleted</value>
+  </data>
+  <data name="流程已处理，无法撤回" xml:space="preserve">
+    <value>The process has been processed and cannot be withdrawn.</value>
+  </data>
+  <data name="流程已审批不能撤回" xml:space="preserve">
+    <value>The process has been approved and cannot be revoked</value>
+  </data>
+  <data name="流程未设计,请先设计流程" xml:space="preserve">
+    <value>The process is not designed, please design the process first</value>
+  </data>
+  <data name="流程自动发起审批失败" xml:space="preserve">
+    <value>Process Auto-Initiation Approval Failed</value>
+  </data>
+  <data name="测试数据禁止更改用户【admin】密码" xml:space="preserve">
+    <value>Test data Do not change the password of user [admin]</value>
+  </data>
+  <data name="测试连接失败" xml:space="preserve">
+    <value>Test connection failed</value>
+  </data>
+  <data name="添加日程失败" xml:space="preserve">
+    <value>Failed to add schedule</value>
+  </data>
+  <data name="添加日程日志失败" xml:space="preserve">
+    <value>Failed to add schedule log</value>
+  </data>
+  <data name="清除缓存失败" xml:space="preserve">
+    <value>Failed to clear cache</value>
+  </data>
+  <data name="演示环境禁止修改数据" xml:space="preserve">
+    <value>Data modification is prohibited in the presentation environment</value>
+  </data>
+  <data name="父机构不存在" xml:space="preserve">
+    <value>The parent organization does not exist</value>
+  </data>
+  <data name="父流程处于驳回状态,无法审批！" xml:space="preserve">
+    <value>The parent process is in a state of rejection and cannot be approved!</value>
+  </data>
+  <data name="父级菜单不能为当前节点，请重新选择父级菜单" xml:space="preserve">
+    <value>The parent menu cannot be the current node. Please select the parent menu again</value>
+  </data>
+  <data name="用户不存在" xml:space="preserve">
+    <value>User does not exist</value>
+  </data>
+  <data name="用户关系移除失败" xml:space="preserve">
+    <value>Description Failed to remove the user relationship</value>
+  </data>
+  <data name="用户名或密码不正确" xml:space="preserve">
+    <value>The user name or password is incorrect</value>
+  </data>
+  <data name="登录票据已失效" xml:space="preserve">
+    <value>The login ticket has expired</value>
+  </data>
+  <data name="登录过期,请重新登录" xml:space="preserve">
+    <value>Login expired, please login again</value>
+  </data>
+  <data name="目的表存在数据，无法同步" xml:space="preserve">
+    <value>There is data in the destination table, which cannot be synchronized.</value>
+  </data>
+  <data name="直属主管不能为自己" xml:space="preserve">
+    <value>Your direct supervisor can't be you</value>
+  </data>
+  <data name="直属主管不能为自己的下属" xml:space="preserve">
+    <value>Direct supervisors cannot be their own subordinates</value>
+  </data>
+  <data name="短信发送失败" xml:space="preserve">
+    <value>Failed to send text messages</value>
+  </data>
+  <data name="禁止为管理员分配角色" xml:space="preserve">
+    <value>You cannot assign a role to an administrator</value>
+  </data>
+  <data name="禁止为超级管理员角色分配权限" xml:space="preserve">
+    <value>You cannot assign permission to the super administrator role</value>
+  </data>
+  <data name="禁止修改任务编码" xml:space="preserve">
+    <value>No modification of task code</value>
+  </data>
+  <data name="禁止删除系统参数" xml:space="preserve">
+    <value>Do not delete system parameters</value>
+  </data>
+  <data name="禁止删除超级管理员" xml:space="preserve">
+    <value>Do not delete the super administrator</value>
+  </data>
+  <data name="租户不存在" xml:space="preserve">
+    <value>Tenant does not exist</value>
+  </data>
+  <data name="租户已到期" xml:space="preserve">
+    <value>Tenant expired</value>
+  </data>
+  <data name="租户已过期" xml:space="preserve">
+    <value>The tenant has expired.</value>
+  </data>
+  <data name="租户登录失败，请用手机验证码登录" xml:space="preserve">
+    <value>Tenant login failed, please use the mobile phone verification code to log in</value>
+  </data>
+  <data name="租户账户已存在" xml:space="preserve">
+    <value>Tenant account already exists</value>
+  </data>
+  <data name="第三方登录未配置!" xml:space="preserve">
+    <value>Third party login is not configured!</value>
+  </data>
+  <data name="管理员不能注销" xml:space="preserve">
+    <value>Administrator cannot log out</value>
+  </data>
+  <data name="系统在审批常用语中被使用，不允许删除！" xml:space="preserve">
+    <value>The system is used in the approval of common language, not allowed to delete!</value>
+  </data>
+  <data name="系统异常" xml:space="preserve">
+    <value>System exception</value>
+  </data>
+  <data name="系统管理员无法操作流程任务" xml:space="preserve">
+    <value>The system administrator cannot operate the process task.</value>
+  </data>
+  <data name="系统自带表,无法删除" xml:space="preserve">
+    <value>The system comes with its own table and cannot be deleted.</value>
+  </data>
+  <data name="系统自带表,无法编辑" xml:space="preserve">
+    <value>The system comes with its own table and cannot be edited.</value>
+  </data>
+  <data name="编码重复" xml:space="preserve">
+    <value>Coding duplication</value>
+  </data>
+  <data name="编码重复，请重新输入" xml:space="preserve">
+    <value>The code is repeated, please re-enter it.</value>
+  </data>
+  <data name="编辑分级管理失败" xml:space="preserve">
+    <value>Failed to edit hierarchical management</value>
+  </data>
+  <data name="编辑权限组失败" xml:space="preserve">
+    <value>Failed to edit the permission group</value>
+  </data>
+  <data name="缺少租户信息" xml:space="preserve">
+    <value>Missing tenant information</value>
+  </data>
+  <data name="自增长ID字段数据类型必须为整形或长整型" xml:space="preserve">
+    <value>The self-growth ID field data type must be integer or long integer.</value>
+  </data>
+  <data name="自定义模板编码不能使用系统模板编码规则" xml:space="preserve">
+    <value>Custom template coding cannot use system template coding rules.</value>
+  </data>
+  <data name="获取不到数据" xml:space="preserve">
+    <value>Unable to get the data</value>
+  </data>
+  <data name="获取模板失败" xml:space="preserve">
+    <value>Failed to get the template</value>
+  </data>
+  <data name="菜单功能地址已存在" xml:space="preserve">
+    <value>The menu function address already exists</value>
+  </data>
+  <data name="菜单已存在" xml:space="preserve">
+    <value>Menu already exists</value>
+  </data>
+  <data name="表单信息不存在" xml:space="preserve">
+    <value>The form information does not exist.</value>
+  </data>
+  <data name="表名超过规定长度" xml:space="preserve">
+    <value>The name exceeds the specified length.</value>
+  </data>
+  <data name="表头名称不可更改，表头行不能删除" xml:space="preserve">
+    <value>The header name cannot be changed, and the header line cannot be deleted.</value>
+  </data>
+  <data name="表存在数据,禁止操作" xml:space="preserve">
+    <value>There is data in the table, and the operation is prohibited.</value>
+  </data>
+  <data name="表缺失乐观锁字段：F_Version" xml:space="preserve">
+    <value>The optimistic lock field F_Version is missing in the table</value>
+  </data>
+  <data name="表缺失流程Id字段：F_FLowId" xml:space="preserve">
+    <value>The flow Id field is missing from the table</value>
+  </data>
+  <data name="表缺失流程Id字段：f_flow_id" xml:space="preserve">
+    <value>Missing table process Id field: f_flow_id</value>
+  </data>
+  <data name="表缺失流程真实ID字段：F_FlowTaskId" xml:space="preserve">
+    <value>The flow ID field F_FlowTaskId is missing from the table</value>
+  </data>
+  <data name="表缺失流程真实ID字段：f_flow_task_id" xml:space="preserve">
+    <value>Table missing process real ID field: f_flow_task_id</value>
+  </data>
+  <data name="表缺失逻辑删除字段：F_DeleteMark" xml:space="preserve">
+    <value>Table missing logical deletion field: F_ DeleteMark</value>
+  </data>
+  <data name="表缺失逻辑删除字段：f_delete_mark, f_delete_time, f_delete_user_id" xml:space="preserve">
+    <value>Missing table logic delete field: f_delete_mark, f_delete_time, f_delete_user_id</value>
+  </data>
+  <data name="表规范名称不能重复" xml:space="preserve">
+    <value>The name of the table specification cannot be repeated.</value>
+  </data>
+  <data name="规范名称不能使用系统关键字或 .Net 关键字" xml:space="preserve">
+    <value>The specification name cannot use system keywords or . Net keyword</value>
+  </data>
+  <data name="角色删除失败" xml:space="preserve">
+    <value>Role deletion failed</value>
+  </data>
+  <data name="角色名称已存在" xml:space="preserve">
+    <value>Role name already exists</value>
+  </data>
+  <data name="角色更新失败" xml:space="preserve">
+    <value>Role update failed</value>
+  </data>
+  <data name="角色编码已存在" xml:space="preserve">
+    <value>Role code already exists</value>
+  </data>
+  <data name="记录不存在" xml:space="preserve">
+    <value>Record does not exist</value>
+  </data>
+  <data name="设计门户失败" xml:space="preserve">
+    <value>Design portal failure</value>
+  </data>
+  <data name="该全局角色下有用户,不允许变更成组织角色" xml:space="preserve">
+    <value>There are users under this global role, and changing to an organizational role is not allowed</value>
+  </data>
+  <data name="该分级管理不存在" xml:space="preserve">
+    <value>The hierarchical management does not exist</value>
+  </data>
+  <data name="该分组下有用户" xml:space="preserve">
+    <value>There are users under this group</value>
+  </data>
+  <data name="该分组不存在" xml:space="preserve">
+    <value>This group does not exist</value>
+  </data>
+  <data name="该功能名称或编码已存在!" xml:space="preserve">
+    <value>The feature name or code already exists!</value>
+  </data>
+  <data name="该功能已停用无法同步菜单!" xml:space="preserve">
+    <value>This feature has been disabled can not sync menu!</value>
+  </data>
+  <data name="该功能已被流程引用,请重新选择关联功能!" xml:space="preserve">
+    <value>This function has been referenced by the process. Please re-select the association function!</value>
+  </data>
+  <data name="该功能未导入流程表单！" xml:space="preserve">
+    <value>This feature does not import the process form!</value>
+  </data>
+  <data name="该功能配置的流程处于停用状态" xml:space="preserve">
+    <value>The process for configuring this function is disabled</value>
+  </data>
+  <data name="该字段不存在" xml:space="preserve">
+    <value>This field does not exist</value>
+  </data>
+  <data name="该岗位下有用户" xml:space="preserve">
+    <value>There are users under this position</value>
+  </data>
+  <data name="该岗位下有用户,不允许变更组织" xml:space="preserve">
+    <value>There are users under this position, and changing the organization is not allowed</value>
+  </data>
+  <data name="该岗位不存在" xml:space="preserve">
+    <value>This position does not exist</value>
+  </data>
+  <data name="该应用已删除" xml:space="preserve">
+    <value>The app has been deleted</value>
+  </data>
+  <data name="该应用已禁用" xml:space="preserve">
+    <value>The application has been disabled.</value>
+  </data>
+  <data name="该日程已被删除" xml:space="preserve">
+    <value>This schedule has been deleted.</value>
+  </data>
+  <data name="该机构下有岗位禁止删除" xml:space="preserve">
+    <value>There are posts in the organization that cannot be deleted</value>
+  </data>
+  <data name="该机构下有机构禁止删除" xml:space="preserve">
+    <value>There are organizations in the organization that prohibit deletion</value>
+  </data>
+  <data name="该机构下有角色禁止删除" xml:space="preserve">
+    <value>There are roles in this organization that cannot be deleted</value>
+  </data>
+  <data name="该权限组不存在" xml:space="preserve">
+    <value>The permission group does not exist.</value>
+  </data>
+  <data name="该模板内列表内容为空，无法下载!" xml:space="preserve">
+    <value>The list in this template is empty and cannot be downloaded!</value>
+  </data>
+  <data name="该模板内列表内容为空，无法发布！" xml:space="preserve">
+    <value>The list in this template is empty and cannot be published!</value>
+  </data>
+  <data name="该模板内列表内容为空，无法预览!" xml:space="preserve">
+    <value>The list in this template is empty and cannot be previewed!</value>
+  </data>
+  <data name="该模板内表单内容为空，无法下载!" xml:space="preserve">
+    <value>The content of the form in this template is empty and cannot be downloaded!</value>
+  </data>
+  <data name="该模板内表单内容为空，无法发布！" xml:space="preserve">
+    <value>The form content in this template is empty and cannot be published!</value>
+  </data>
+  <data name="该模板内表单内容为空，无法预览!" xml:space="preserve">
+    <value>The content of the form in this template is empty and cannot be previewed!</value>
+  </data>
+  <data name="该流程已删除" xml:space="preserve">
+    <value>This process has been deleted.</value>
+  </data>
+  <data name="该流程已发起数据，无法删除!" xml:space="preserve">
+    <value>The work order task flow in this process is not over and cannot be deleted!</value>
+  </data>
+  <data name="该流程已发起，无法删除" xml:space="preserve">
+    <value>The process has been initiated and cannot be deleted</value>
+  </data>
+  <data name="该流程无权限操作" xml:space="preserve">
+    <value>This process has no permission to operate</value>
+  </data>
+  <data name="该流程无权限查看" xml:space="preserve">
+    <value>There is no permission to view this process.</value>
+  </data>
+  <data name="该流程无法复活" xml:space="preserve">
+    <value>The process cannot be resurrected.</value>
+  </data>
+  <data name="该用户未分配权限" xml:space="preserve">
+    <value>The user has not assigned permissions.</value>
+  </data>
+  <data name="该用户未分配权限!" xml:space="preserve">
+    <value>The user has not been assigned permission!</value>
+  </data>
+  <data name="该系统下菜单为空，系统切换失败" xml:space="preserve">
+    <value>The menu under the system is empty, and the system switchover fails</value>
+  </data>
+  <data name="该组织下无角色或角色权限为空，组织切换失败" xml:space="preserve">
+    <value>The organization switchover fails because there is no role in the organization or the role permission is empty</value>
+  </data>
+  <data name="该组织内权限为空，组织切换失败!" xml:space="preserve">
+    <value>The permissions within the organization are empty, and the organization switch failed!</value>
+  </data>
+  <data name="该组织无本应用权限,切换失败" xml:space="preserve">
+    <value>The organization does not have access to this application, and the switching failed.</value>
+  </data>
+  <data name="该表单已删除" xml:space="preserve">
+    <value>This form has been deleted.</value>
+  </data>
+  <data name="该表单已被流程引用，无法删除！" xml:space="preserve">
+    <value>This form has been referenced by the process and cannot be deleted!</value>
+  </data>
+  <data name="该表单未发布，无法回滚表单内容！" xml:space="preserve">
+    <value>The form is not published and cannot be rolled back!</value>
+  </data>
+  <data name="该角色下有数据权限" xml:space="preserve">
+    <value>There is data permission under this role</value>
+  </data>
+  <data name="该角色下有模块列表权限" xml:space="preserve">
+    <value>This role has module list permissions</value>
+  </data>
+  <data name="该角色下有模块按钮权限" xml:space="preserve">
+    <value>This role has module button permissions</value>
+  </data>
+  <data name="该角色下有模块菜单权限" xml:space="preserve">
+    <value>This role has module menu permissions</value>
+  </data>
+  <data name="该角色下有模块表单权限" xml:space="preserve">
+    <value>This role has module form permissions</value>
+  </data>
+  <data name="该角色下有用户" xml:space="preserve">
+    <value>There are users under this role</value>
+  </data>
+  <data name="该角色不存在" xml:space="preserve">
+    <value>The role does not exist</value>
+  </data>
+  <data name="该角色和组织下有用户,不允许变更组织" xml:space="preserve">
+    <value>There are users under this role and organization, and changing the organization is not allowed</value>
+  </data>
+  <data name="该身份未分配权限!" xml:space="preserve">
+    <value>No permissions have been assigned to this identity!</value>
+  </data>
+  <data name="该门户已删除" xml:space="preserve">
+    <value>The portal has been deleted.</value>
+  </data>
+  <data name="请先前往系统同步设置，配置企业微信账号" xml:space="preserve">
+    <value>Please go to the system synchronization settings first and configure the enterprise WeChat account.</value>
+  </data>
+  <data name="请先前往系统同步设置，配置钉钉账号" xml:space="preserve">
+    <value>Please go to the system synchronization settings first and configure the DingTalk account.</value>
+  </data>
+  <data name="请在数据库中添加对应的数据表\r\n\r\n" xml:space="preserve">
+    <value>Please add the corresponding data table to the database\r\n\r\n</value>
+  </data>
+  <data name="请求头部参数Authorization不能为空" xml:space="preserve">
+    <value>Request header parameter Authorization cannot be empty</value>
+  </data>
+  <data name="请求头部参数YmDate不能为空" xml:space="preserve">
+    <value>The request header parameter YmDate cannot be empty.</value>
+  </data>
+  <data name="请等待{0}分钟后再进行登录，或联系管理员解除账号锁定！" xml:space="preserve">
+    <value>Please wait {0} minutes before logging in, or contact the administrator to unlock the account!</value>
+  </data>
+  <data name="请等待{0}分钟后再进行登录，或联系管理员解除锁定" xml:space="preserve">
+    <value>Please wait {0} minutes before logging in, or contact the administrator to unlock it.</value>
+  </data>
+  <data name="请联系管理员解除账号锁定！" xml:space="preserve">
+    <value>Please contact the administrator to unlock the account!</value>
+  </data>
+  <data name="请至少选择一个数据表" xml:space="preserve">
+    <value>Please select at least one data table</value>
+  </data>
+  <data name="账号在其他地方登录" xml:space="preserve">
+    <value>The account has been logged in elsewhere</value>
+  </data>
+  <data name="账号已存在" xml:space="preserve">
+    <value>Account already exists</value>
+  </data>
+  <data name="账号已被禁用" xml:space="preserve">
+    <value>The account has been disabled</value>
+  </data>
+  <data name="账号已被锁定，请联系管理员解除锁定" xml:space="preserve">
+    <value>The account has been locked, please contact the administrator to unlock it.</value>
+  </data>
+  <data name="账号或密码错误" xml:space="preserve">
+    <value>Account or password error</value>
+  </data>
+  <data name="账号未被激活" xml:space="preserve">
+    <value>The account is not activated</value>
+  </data>
+  <data name="账号权限不足,请联系管理员" xml:space="preserve">
+    <value>Account permissions are insufficient. Please contact the administrator</value>
+  </data>
+  <data name="账号被删除" xml:space="preserve">
+    <value>Account deleted</value>
+  </data>
+  <data name="账号被禁用" xml:space="preserve">
+    <value>Account is disabled</value>
+  </data>
+  <data name="账户创建失败" xml:space="preserve">
+    <value>Account creation failure</value>
+  </data>
+  <data name="账户已存在" xml:space="preserve">
+    <value>Account exists</value>
+  </data>
+  <data name="账户更新失败" xml:space="preserve">
+    <value>Account update failure</value>
+  </data>
+  <data name="超时登出时间,不能超过8百万分钟" xml:space="preserve">
+    <value>Timeout logout time cannot exceed 8 million minutes</value>
+  </data>
+  <data name="路径错误" xml:space="preserve">
+    <value>Wrong path</value>
+  </data>
+  <data name="路由地址为空" xml:space="preserve">
+    <value>The route address is empty</value>
+  </data>
+  <data name="转办失败" xml:space="preserve">
+    <value>Failed to transfer</value>
+  </data>
+  <data name="还原失败,该文件父级不存在" xml:space="preserve">
+    <value>Restore failed, the file parent does not exist</value>
+  </data>
+  <data name="远程请求发生错误" xml:space="preserve">
+    <value>An error occurred in the remote request</value>
+  </data>
+  <data name="退回至您的审批,不能再退回审批!" xml:space="preserve">
+    <value>It can't be returned to your approval!</value>
+  </data>
+  <data name="退回节点包含子流程,退回失败" xml:space="preserve">
+    <value>The return node contains a sub-process, and the return failed.</value>
+  </data>
+  <data name="退回节点未审批，退回失败" xml:space="preserve">
+    <value>The return node was not approved, and the return failed.</value>
+  </data>
+  <data name="选择的数据不能退签" xml:space="preserve">
+    <value>The selected data cannot be returned</value>
+  </data>
+  <data name="选择的数据对应流程已暂停" xml:space="preserve">
+    <value>The process corresponding to the selected data has been paused</value>
+  </data>
+  <data name="通知公告删除失败" xml:space="preserve">
+    <value>Notification announcement deletion failed</value>
+  </data>
+  <data name="通知公告发布失败" xml:space="preserve">
+    <value>Notice announcement failed to be issued</value>
+  </data>
+  <data name="通知公告状态错误" xml:space="preserve">
+    <value>Notification Announcement Status Error</value>
+  </data>
+  <data name="通知公告编辑失败，类型必须为草稿" xml:space="preserve">
+    <value>Notification announcement editing failed, type must be draft</value>
+  </data>
+  <data name="邮箱账户认证错误" xml:space="preserve">
+    <value>The email account authentication is incorrect</value>
+  </data>
+  <data name="部门名称已存在" xml:space="preserve">
+    <value>The department name already exists</value>
+  </data>
+  <data name="部门编码已存在" xml:space="preserve">
+    <value>The department code already exists</value>
+  </data>
+  <data name="重复数据或记录含有不存在数据" xml:space="preserve">
+    <value>Duplicate data or records contain data that does not exist</value>
+  </data>
+  <data name="鉴权接口请求失败或接口数据异常" xml:space="preserve">
+    <value>Authentication interface request failure or interface data abnormality</value>
+  </data>
+  <data name="链接已失效" xml:space="preserve">
+    <value>The link is invalid.</value>
+  </data>
+  <data name="错误的模板设计,表关系不能多对多" xml:space="preserve">
+    <value>Wrong template design, table relationships can not be many-to-many</value>
+  </data>
+  <data name="门户分类不能为空" xml:space="preserve">
+    <value>Portal categories cannot be empty</value>
+  </data>
+  <data name="门户名称不能为空" xml:space="preserve">
+    <value>The portal name cannot be empty</value>
+  </data>
+  <data name="门户名称不能重复" xml:space="preserve">
+    <value>The portal name cannot be duplicated.</value>
+  </data>
+  <data name="门户编码不能为空" xml:space="preserve">
+    <value>The portal code cannot be empty</value>
+  </data>
+  <data name="门户编码不能重复" xml:space="preserve">
+    <value>Portal coding cannot be repeated.</value>
+  </data>
+  <data name="防止恶意创建过多数据" xml:space="preserve">
+    <value>Prevent malicious creation of too much data</value>
+  </data>
+  <data name="附属机构下有员工禁止删除" xml:space="preserve">
+    <value>Employees of affiliated organizations are prohibited from deleting</value>
+  </data>
+  <data name="集成助手被禁用" xml:space="preserve">
+    <value>Integrated assistant is disabled</value>
+  </data>
+  <data name="非法操作，禁止删除自己" xml:space="preserve">
+    <value>Illegal operation, do not delete yourself</value>
+  </data>
+  <data name="非法数据" xml:space="preserve">
+    <value>Illegal data</value>
+  </data>
+  <data name="预览失败 : 数据读取错误" xml:space="preserve">
+    <value>Preview failed: Data read error</value>
+  </data>
+  <data name="预览失败 : 表头名称不可更改,表头行不能删除" xml:space="preserve">
+    <value>Preview failed: The header name cannot be changed and the header row cannot be deleted</value>
+  </data>
+  <data name="预览失败,Sql语句包含敏感词汇" xml:space="preserve">
+    <value>Preview failed. Sql statement contains sensitive words</value>
+  </data>
+  <data name="预览失败,【{0}】控件静态数据出现重复" xml:space="preserve">
+    <value>Preview failed because static data in the [{0}] control is duplicated</value>
+  </data>
+  <data name="预览失败，数据不存在" xml:space="preserve">
+    <value>Preview failed, data does not exist</value>
+  </data>
+  <data name="预览失败，文件数据错误" xml:space="preserve">
+    <value>Preview failed, file data error</value>
+  </data>
+  <data name="预览失败，文件类型不支持" xml:space="preserve">
+    <value>Preview failed because the file type is not supported</value>
+  </data>
+  <data name="验证码已失效" xml:space="preserve">
+    <value>The verification code is invalid.</value>
+  </data>
+  <data name="验证码已失效，请重新输入！" xml:space="preserve">
+    <value>Verification code is invalid, please re-enter!</value>
+  </data>
+  <data name="验证码输入错误，请重新输入！" xml:space="preserve">
+    <value>Verification code input error, please re-enter!</value>
+  </data>
+  <data name="验证码错误" xml:space="preserve">
+    <value>Verification code error</value>
+  </data>
+  <data name="验证码限定范围:3 - 6位" xml:space="preserve">
+    <value>Verification code limit range: 3-6 characters</value>
+  </data>
+</root>

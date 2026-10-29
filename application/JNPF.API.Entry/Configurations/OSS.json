@@ -1,0 +1,13 @@
+{
+  "OSS": {
+    "BucketName": "jnpfsoftoss",
+    //文件存储类型(Invalid(本地),MinIo,Aliyun,QCloud,Qiniu)
+    "Provider": "Invalid",
+    "Endpoint": "192.168.0.60:9000",
+    "AccessKey": "minioadmin",
+    "SecretKey": "minioadmin",
+    "Region": null,
+    "IsEnableHttps": false,
+    "IsEnableCache": true
+  }
+}

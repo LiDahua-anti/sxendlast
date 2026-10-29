@@ -1,0 +1,34 @@
+{
+    "EnCode": "@(Model.BasicInfo.EnCode)",
+    "FullName": "@(Model.BasicInfo.FullName)",
+    "Category": "@(Model.BasicInfo.Category)",
+    "UrlAddress": "@(Model.WebType == 3 ? "workFlow/workFlowForm/"+ Model.BasicInfo.MianTable +"/index.vue" : "extend/"+ Model.BasicInfo.MianTable +"/Form.vue")",
+    "AppUrlAddress": "@(Model.WebType == 3 ? "/pages/apply/"+ Model.BasicInfo.MianTable + "" : "/pages/apply/" + Model.BasicInfo.MianTable + "/index.vue")", @*app地址*@
+    "WebAddress": "@(Model.WebType == 3 ? "workFlow/workFlowForm/"+ Model.BasicInfo.MianTable : "extend/"+ Model.BasicInfo.MianTable)",
+    "AppAddress": "@(Model.WebType == 3 ? "/pages/apply/"+ Model.BasicInfo.MianTable + "" : "/pages/apply/" + Model.BasicInfo.MianTable + "/index")", @*app地址*@
+    "AppButtonData": @(Model.BasicInfo.AppButtonData),
+    "ButtonData": @(Model.BasicInfo.ButtonData),
+    "ColumnData": @(Model.BasicInfo.ColumnData),
+    "AppColumnData": @(Model.BasicInfo.AppColumnData),
+    "EnableFlow": @(Model.EnableFlow),
+    @*线上模板*@
+    "FormData": @(Model.BasicInfo.PropertyJson),
+    "Description": "",
+    "SortCode": 0,
+    "WebType": @(Model.WebType == 3 ? "0" : "1"),
+    "Type": 2,
+    "Tables": @(Model.BasicInfo.TableJson),
+    "AliasListJson": @(Model.BasicInfo.AliasListJson),
+    "DbLinkId": "@(Model.BasicInfo.DbLinkId)",
+    "InterfaceUrl":"api/@(Model.WebType == 3 ? Model.NameSpace + "/Form" : Model.NameSpace)/@(Model.ClassName)",    
+    @*草稿模板*@
+    "DraftJson":"",
+    "CreatorTime": @Model.BasicInfo.CreatorTime,
+    "CreatorUserId": "@(Model.BasicInfo.CreatorUserId)",
+    "EnabledMark": 0,
+    "LastModifyTime": null,
+    "LastModifyUserId": null,
+    "DeleteMark": null,
+    "DeleteTime": null,
+    "DeleteUserId": null,
+}

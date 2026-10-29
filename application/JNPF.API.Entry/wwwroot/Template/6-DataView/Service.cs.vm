@@ -1,0 +1,87 @@
+﻿using JNPF.DependencyInjection;
+using JNPF.DynamicApiController;
+using Microsoft.AspNetCore.Mvc;
+using JNPF.VisualDev;
+using JNPF.VisualDev.Entitys.Dto.VisualDevModelData;
+using SqlSugar;
+using JNPF.VisualDev.Entitys;
+using JNPF.Common.Security;
+using SqlSugar.Extensions;
+
+namespace JNPF.@(Model.NameSpace);
+
+/// <summary>
+/// 数据视图：@(Model.BusName).
+/// </summary>
+[ApiDescriptionSettings(Tag = "@(Model.NameSpace)", Name = "@Model.ClassName", Order = 200)]
+[Route("api/@Model.NameSpace/[controller]")]
+public class @(Model.ClassName)Service : IDynamicApiController, ITransient
+{
+    /// <summary>
+    /// 服务基础仓储.
+    /// </summary>
+    private readonly ISqlSugarRepository<VisualDevEntity> _repository;
+
+    /// <summary>
+    /// 在线开发引擎(调用数据视图).
+    /// </summary>
+    private readonly RunService _runService;
+    private readonly VisualDevModelDataService _visualDevModelDataService;
+
+    /// <summary>
+    /// 初始化一个<see cref="@(Model.ClassName)"/>类型的新实例.
+    /// </summary>
+    public @(Model.ClassName)Service(
+        RunService runService,
+        VisualDevModelDataService visualDevModelDataService,
+        ISqlSugarRepository<VisualDevEntity> repository)
+    {
+        _repository = repository;
+        _runService = runService;
+        _visualDevModelDataService = visualDevModelDataService;
+    }
+    
+    /// <summary>
+    /// 获取@(Model.BusName)列表.
+    /// </summary>
+    /// <param name="input">请求参数.</param>
+    /// <returns></returns>
+    [HttpPost("List")]
+    public async Task<dynamic> GetList([FromBody] Dictionary<string, object> input)
+    {
+        input = input.Where(x => x.Value != null && x.Value.ToJsonString() != "[]").ToDictionary(dic => dic.Key, dic => dic.Value);
+        var entity = await _repository.AsQueryable().FirstAsync(x => x.Id.Equals("@(Model.Id)"));
+        var parameter = new VisualDevModelListQueryInput()
+        {
+            queryJson = input.ToJsonString(),
+            currentPage = input.ContainsKey("currentPage") ? input["currentPage"].ObjToInt() : 1,
+            pageSize = input.ContainsKey("pageSize") ? input["pageSize"].ObjToInt() : 1000000,
+            sidx = input.ContainsKey("sidx") ? input["sidx"].ToString() : string.Empty,
+            menuId = input.ContainsKey("menuId") ? input["menuId"].ToString() : string.Empty
+        };
+        return await _runService.GetDataViewResults(new VisualDev.Engine.Core.TemplateParsingBase(entity), parameter);
+    }
+    
+    /// <summary>
+    /// 导出net-视图静态数据.
+    /// </summary>
+    /// <param name="input">请求参数.</param>
+    /// <returns></returns>
+    [HttpPost("Actions/Export")]
+    public async Task<dynamic> Export([FromBody] Dictionary<string, object> input)
+    {
+        input = input.Where(x => x.Value != null && x.Value.ToJsonString() != "[]").ToDictionary(dic => dic.Key, dic => dic.Value);
+        var parameter = new VisualDevModelListQueryInput()
+        {
+            queryJson = input.ToJsonString(),
+            currentPage = input.ContainsKey("currentPage") ? input["currentPage"].ObjToInt() : 1,
+            pageSize = input.ContainsKey("pageSize") ? input["pageSize"].ObjToInt() : 1000000,
+            dataType = input.ContainsKey("dataType") ? input["dataType"].ToString() : string.Empty,
+            sidx = input.ContainsKey("sidx") ? input["sidx"].ToString() : string.Empty,
+            selectIds = input.ContainsKey("selectIds") ? input["selectIds"].ToString().Split(",").ToList() : new List<string>(),
+            selectKey = input.ContainsKey("selectKey") ? input["selectKey"].ToString().Split(",").ToList() : new List<string>(),
+            menuId = input.ContainsKey("menuId") ? input["menuId"].ToString() : string.Empty
+        };
+        return await _visualDevModelDataService.ExportData("@(Model.Id)", parameter);
+    }
+}

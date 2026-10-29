@@ -1,0 +1,62 @@
+<template>
+  <div class="jnpf-content-wrapper bg-white">
+    <FlowParser @@register="registerFlowParser"  @@reload="init()"/>
+  </div>
+</template>
+
+<script lang="ts" setup>
+  import { reactive, onMounted, toRefs } from 'vue';
+  import { useMessage } from '@@jnpf/hooks';
+  import { usePopup } from '@@jnpf/ui/popup';
+  import { useRoute,useRouter } from 'vue-router';
+  import { useTabs } from '@@vben/hooks';
+  import { getFlowStartFormId } from '#/api/workFlow/template';
+  import FlowParser from '#/views/workFlow/components/FlowParser.vue';
+
+  interface State {
+    flowId: string;
+  }
+
+  const router = useRouter();
+  const { closeCurrentTab } = useTabs();
+  const { createMessage } = useMessage();
+  const [registerFlowParser, { openPopup: openFlowParser }] = usePopup();
+  const state = reactive<State>({
+    flowId: '', //请在此处填写流程id
+  });
+
+
+  function init() {
+   const data = {
+      id: '',
+      flowId: state.flowId||'',
+      opType: '-1',
+      hideCancelBtn: true,
+    };
+    openFlowParser(true, data);
+  }
+@if(Model.HasFlow)
+{
+  @:function getFlowId(){
+      @:if(!state.flowId){
+        @:createMessage.error('流程模板的flowId未填写')
+        @:closeCurrentTab();
+        @:router.replace('/404');
+        @:return
+      @:}
+      @:getFlowStartFormId(state.flowId).then(res => {
+        @:init()
+      @:}).catch(() => {
+        @:closeCurrentTab();
+        @:router.replace('/404');
+      @:});
+    @:}
+}
+  onMounted(() => {
+@if(Model.HasFlow){
+    @:getFlowId();
+}else{
+    @:init();
+}
+  });
+</script>

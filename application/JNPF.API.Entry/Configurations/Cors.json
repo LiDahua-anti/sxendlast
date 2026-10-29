@@ -1,0 +1,7 @@
+{
+    "CorsAccessorSettings": {
+        "PolicyName": "JNPFCorsAccessor",
+        "WithOrigins": [],
+        "WithExposedHeaders": [ "access-token", "x-access-token", "Content-Disposition" ]
+    }
+}

@@ -1,0 +1,53 @@
+<template>
+    <view class="jnpf-wrap jnpf-wrap-form">
+        <FlowBox ref="FlowBox" v-if="flowVisible"></FlowBox>
+    </view>
+</template>
+
+<script>
+    import FlowBox from '@@/pages/workFlow/flowBefore/index.vue'
+	import {
+        getFlowStartFormId
+    } from "@@/api/workFlow/flowEngine";
+    export default {
+        components: {
+            FlowBox
+        },
+        data() {
+            return {
+				flowVisible: false,
+                flowId: '',//请在此处填写流程id
+            }
+        },
+        onLoad(e) {
+		    this.getFlowId()
+        },
+        methods: {
+		    getFlowId(){
+				    if (!this.flowId) {
+                        this.$u.toast("流程模板的flowId未填写")
+                        setTimeout(() => {
+                                return uni.navigateBack()
+                        }, 2000)
+                    }
+                    getFlowStartFormId(this.flowId).then(res=>{
+                        this.flow()
+                    }).catch(()=>{
+                })
+            },
+			flow() {
+				const config = {
+					flowId: this.flowId,
+					hideCancelBtn:true,
+					formType: 1,
+					opType: '-1',
+				}
+				if (!this.flowId) return this.$message.error("该功能未配置流程不可用!")
+				this.flowVisible = true
+				this.$nextTick(() => {
+					this.$refs.FlowBox.handleCodeGeneration(config)
+				})
+			},
+        },
+    }
+</script>

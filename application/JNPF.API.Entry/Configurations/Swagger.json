@@ -1,0 +1,19 @@
+{
+  "SpecificationDocumentSettings": {
+    "DocumentTitle": "JNPF.NET",
+    "DocExpansionState": "None",// List、Full、None
+    "GroupOpenApiInfos": [
+      {
+        "Group": "Default",
+        "Title": "JNPF快捷开发平台",
+        "Description": "",
+        "Version": "6.0"
+      }
+    ],
+    "LoginInfo": {
+      "Enabled": true, // 是否开启Swagger登录
+      // "CheckUrl": "https://localhost:5000/Home/CheckUrl",
+      // "SubmitUrl": "https://localhost:5000/Home/SubmitUrl"
+    }
+  }
+}
