@@ -277,7 +277,7 @@ namespace JNPF.Systems.Custom
         /// </summary>
         /// <param name="input">报工入参.</param>
         /// <returns>报工结果（批次号/均分结果）.</returns>
-        [HttpPost("SubmitWorkReport")]
+        [HttpPost("pad/SubmitWorkReport")]
         public async Task<dynamic> SubmitWorkReport([FromBody] WorkReportSubmitInput input)
         {
             if (input.FlowCardId.IsNullOrEmpty())
@@ -554,7 +554,7 @@ namespace JNPF.Systems.Custom
         /// </summary>
         /// <param name="reportId">报工明细主键.</param>
         /// <returns>检包检验记录（含流程卡/订单/产品信息）.</returns>
-        [HttpGet("GetReportCheckDetail")]
+        [HttpGet("pad/GetReportCheckDetail")]
         public async Task<dynamic> GetReportCheckDetail(string reportId)
         {
             if (reportId.IsNullOrEmpty())
@@ -614,7 +614,7 @@ namespace JNPF.Systems.Custom
         /// </summary>
         /// <param name="flowCardId">流程卡主键.</param>
         /// <returns>未完工工序概况.</returns>
-        [HttpGet("EndProduction")]
+        [HttpGet("pad/EndProduction")]
         public async Task<dynamic> EndProduction(string flowCardId)
         {
             if (flowCardId.IsNullOrEmpty())
@@ -643,6 +643,80 @@ namespace JNPF.Systems.Custom
                 Message = unfinished.Any()
                     ? $"结束生产：未完工流程卡已保留，{unfinished.Count} 道工序未完成，次日可继续报工"
                     : "结束生产：该流程卡全部工序已完成，可进入入库流程"
+            };
+        }
+
+        /// <summary>
+        /// 修改报工结果（记录修改人和修改时间）.
+        /// </summary>
+        /// <param name="input">修改入参.</param>
+        /// <returns>修改结果.</returns>
+        [HttpPost("pad/UpdateWorkReportResult")]
+        public async Task<dynamic> UpdateWorkReportResult([FromBody] WorkReportResultInput input)
+        {
+            if (input.Id.IsNullOrEmpty())
+            {
+                throw Oops.Oh(ErrorCode.COM1007);
+            }
+
+            var report = await _workReportRepository.GetFirstAsync(m => m.Id == input.Id && m.DeleteMark == null);
+            if (report == null)
+            {
+                throw Oops.Oh(ErrorCode.COM1018, "报工记录不存在");
+            }
+
+            // 更新可修改字段（仅更新传入的非空值）
+            if (input.GoodQty != null)
+            {
+                report.GoodQty = input.GoodQty;
+            }
+            if (input.BadQty != null)
+            {
+                report.BadQty = input.BadQty;
+            }
+            if (input.WorkHours != null)
+            {
+                report.WorkHours = input.WorkHours;
+            }
+            if (!input.DeviceName.IsNullOrEmpty())
+            {
+                report.DeviceName = input.DeviceName;
+            }
+            if (!input.Station.IsNullOrEmpty())
+            {
+                report.Station = input.Station;
+            }
+            if (input.StartTime != null)
+            {
+                report.StartTime = input.StartTime;
+            }
+            if (input.EndTime != null)
+            {
+                report.EndTime = input.EndTime;
+            }
+            if (input.Remark != null)
+            {
+                report.Remark = input.Remark;
+            }
+
+            // 记录修改人和修改时间（调用 LastModify() 方法自动填充）
+            var updateColumns = new List<string> { "GoodQty", "BadQty", "WorkHours", "DeviceName", "Station", "StartTime", "EndTime", "Remark", "LastModifyTime", "LastModifyUserId" };
+            var updateOk = await _workReportRepository.AsSugarClient().Updateable(report)
+                .CallEntityMethod(m => m.LastModify())
+                .UpdateColumns(it => new { it.GoodQty, it.BadQty, it.WorkHours, it.DeviceName, it.Station, it.StartTime, it.EndTime, it.Remark, it.LastModifyTime, it.LastModifyUserId })
+                .ExecuteCommandAsync();
+
+            if (!(updateOk > 0))
+            {
+                throw Oops.Oh(ErrorCode.COM1000);
+            }
+
+            return new
+            {
+                id = report.Id,
+                message = "报工结果已修改",
+                modifyUser = _userManager.RealName,
+                modifyTime = DateTime.Now
             };
         }
 

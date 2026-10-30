@@ -214,12 +214,14 @@ namespace JNPF.Systems.Custom
             return output;
         }
 
+        #region PDA接口
+
         /// <summary>
         /// 来料检验登记（PDA采购入库扫码；免检自动跳过检查项并标记免检；不合格自动进入待处理）.
         /// </summary>
         /// <param name="input">登记入参.</param>
         /// <returns>登记结果.</returns>
-        [HttpPost("RegisterIqc")]
+        [HttpPost("pad/RegisterIqc")]
         public async Task<dynamic> RegisterIqc([FromBody] IqcRegisterInput input)
         {
             var now = DateTime.Now;
@@ -321,7 +323,7 @@ namespace JNPF.Systems.Custom
         /// </summary>
         /// <param name="input">处理入参.</param>
         /// <returns>无.</returns>
-        [HttpPost("HandleIqcBad")]
+        [HttpPost("pad/HandleIqcBad")]
         public async Task HandleIqcBad([FromBody] BadHandleInput input)
         {
             if (input.Id.IsNullOrEmpty())
@@ -346,6 +348,8 @@ namespace JNPF.Systems.Custom
                 throw Oops.Oh(ErrorCode.COM1001);
             }
         }
+
+        #endregion
 
         #endregion
 
@@ -472,13 +476,16 @@ namespace JNPF.Systems.Custom
 
             return output;
         }
+        #endregion
+
+        #region PDA接口
 
         /// <summary>
         /// 质量抽检登记（PDA品质抽检扫码；按批抽样判定；合格后联动订单「待入库」；不合格自动进入待处理）.
         /// </summary>
         /// <param name="input">登记入参.</param>
         /// <returns>登记结果.</returns>
-        [HttpPost("RegisterOqc")]
+        [HttpPost("pad/RegisterOqc")]
         public async Task<dynamic> RegisterOqc([FromBody] OqcRegisterInput input)
         {
             if (input.FlowCardId.IsNullOrEmpty())
@@ -580,7 +587,7 @@ namespace JNPF.Systems.Custom
         /// </summary>
         /// <param name="input">处理入参.</param>
         /// <returns>无.</returns>
-        [HttpPost("HandleOqcBad")]
+        [HttpPost("pad/HandleOqcBad")]
         public async Task HandleOqcBad([FromBody] BadHandleInput input)
         {
             if (input.Id.IsNullOrEmpty())
@@ -611,7 +618,7 @@ namespace JNPF.Systems.Custom
         /// </summary>
         /// <param name="processId">工序ID.</param>
         /// <returns>检查项目定义列表.</returns>
-        [HttpGet("GetProcessCheckItems")]
+        [HttpGet("pad/GetProcessCheckItems")]
         public async Task<dynamic> GetProcessCheckItems(string processId)
         {
             if (processId.IsNullOrEmpty())

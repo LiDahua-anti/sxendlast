@@ -114,9 +114,6 @@ public class SxPurchaseArrivalMainService : ISxPurchaseArrivalMainService, IDyna
         _yonyouSyncService = yonyouSyncService;
     }
 
-    // ──────────────────────────────────────────────────────────
-    // 前端对照：Form.vue → getInfo(id)  编辑回显
-    // ──────────────────────────────────────────────────────────
     /// <summary>
     /// 获取sx_purchase_arrival_main（编辑回显）.
     /// 前端调用：Form.vue → getData(id) → getInfo(id) → GET /{id}.
@@ -149,12 +146,6 @@ public class SxPurchaseArrivalMainService : ISxPurchaseArrivalMainService, IDyna
         return data;
     }
 
-    // ──────────────────────────────────────────────────────────
-    // 前端对照：index.vue → getList(data)  列表分页 + 高级查询
-    // 搜索条件：business_type（模糊）、arrival_date（日期范围）
-    // 高级查询：superQueryJson（主表 + 子表动态条件）
-    // 过滤条件：FlowId==null（排除流程引擎关联数据）
-    // ──────────────────────────────────────────────────────────
     /// <summary>
     /// 获取sx_purchase_arrival_main列表（分页 + 高级查询）.
     /// 前端调用：index.vue → useVxeTable({ api: getList }) → POST /List.
@@ -234,10 +225,6 @@ public class SxPurchaseArrivalMainService : ISxPurchaseArrivalMainService, IDyna
         return PageResult<SxPurchaseArrivalMainListOutput>.SqlSugarPageResult(data);
     }
 
-    // ──────────────────────────────────────────────────────────
-    // 前端对照：Form.vue → handleSubmit() → create(data)  新增保存
-    // 主表 + 子表（tableField7c2932）一起提交
-    // ──────────────────────────────────────────────────────────
     /// <summary>
     /// 新建sx_purchase_arrival_main（含子表到货列表）.
     /// 前端调用：Form.vue → handleSubmit() → create(data) → POST /.
@@ -266,10 +253,6 @@ public class SxPurchaseArrivalMainService : ISxPurchaseArrivalMainService, IDyna
         }
     }
 
-    // ──────────────────────────────────────────────────────────
-    // 前端对照：Form.vue → handleSubmit() → update(data)  编辑保存
-    // 逻辑：先删子表已移除行 → 再更新主表 → 逐行新增/更新子表
-    // ──────────────────────────────────────────────────────────
     /// <summary>
     /// 更新sx_purchase_arrival_main（含子表到货列表增删改）.
     /// 前端调用：Form.vue → handleSubmit() → update(data) → PUT /{id}.
@@ -320,10 +303,6 @@ public class SxPurchaseArrivalMainService : ISxPurchaseArrivalMainService, IDyna
         }
     }
 
-    // ──────────────────────────────────────────────────────────
-    // 前端对照：index.vue → del(id)  单条删除
-    // 同时级联删除子表数据
-    // ──────────────────────────────────────────────────────────
     /// <summary>
     /// 删除sx_purchase_arrival_main（级联删除子表）.
     /// 前端调用：index.vue → del(id) → DELETE /{id}.
@@ -342,10 +321,6 @@ public class SxPurchaseArrivalMainService : ISxPurchaseArrivalMainService, IDyna
         await _sqlSugarClient.Deleteable<SxPurchaseArrivalDetailEntity>().Where(m => m.Arrival_main_id == id).ExecuteCommandAsync();
     }
 
-    // ──────────────────────────────────────────────────────────
-    // 前端对照：index.vue → batchDelete(ids)  批量删除
-    // 同时级联删除所有选中记录的子表数据
-    // ──────────────────────────────────────────────────────────
     /// <summary>
     /// 批量删除sx_purchase_arrival_main（级联删除子表）.
     /// 前端调用：index.vue → batchDelete(ids) → POST /batchRemove.
@@ -363,10 +338,6 @@ public class SxPurchaseArrivalMainService : ISxPurchaseArrivalMainService, IDyna
         await _sqlSugarClient.Deleteable<SxPurchaseArrivalMainEntity>().Where(m => ids.Contains(m.Id)).ExecuteCommandAsync();
     }
 
-    // ──────────────────────────────────────────────────────────
-    // 前端对照：Detail.vue → getDetail(id)  详情弹窗
-    // 返回主表 + 子表（tableField7c2932）
-    // ──────────────────────────────────────────────────────────
     /// <summary>
     /// sx_purchase_arrival_main详情（只读查看）.
     /// 前端调用：Detail.vue → getData(id) → getDetail(id) → GET /Detail/{id}.
@@ -400,17 +371,8 @@ public class SxPurchaseArrivalMainService : ISxPurchaseArrivalMainService, IDyna
         return data.FirstOrDefault();
     }
 
-    // ──────────────────────────────────────────────────────────
-    // 前端对照：Detail.vue → openPrintModal(record) → handlePrint()
-    // ⚠️ 当前前端使用 mock 数据，尚未调用此 API
-    // 功能：到货明细打印流程卡（条数整定：不足补印、多余删除；
-    //       已投产卡不可减少条数；支持修改定量）
-    // ──────────────────────────────────────────────────────────
     #region 到货单打印流程卡
 
-    // ──────────────────────────────────────────────────────────
-    // 用友同步：到货单拉取（模拟实现）
-    // ──────────────────────────────────────────────────────────
     /// <summary>
     /// 从用友U8同步到货单（模拟实现：生成到货单并写同步日志）.
     /// </summary>
@@ -510,9 +472,6 @@ public class SxPurchaseArrivalMainService : ISxPurchaseArrivalMainService, IDyna
         };
     }
 
-    // ──────────────────────────────────────────────────────────
-    // 打印预览分配：按总托数平均分配投产数量，自动生成流程卡并入库
-    // ──────────────────────────────────────────────────────────
     /// <summary>
     /// 打印预览分配：按总托数平均分配投产数量，自动生成流程卡并入库.
     /// POST /PreviewAllocate  入参：arrivalId、arrivalDetailId、totalQty、totalPallets.
@@ -613,9 +572,6 @@ public class SxPurchaseArrivalMainService : ISxPurchaseArrivalMainService, IDyna
         };
     }
 
-    // ──────────────────────────────────────────────────────────
-    // 新增一行流程卡：生成唯一流程卡ID（考虑历史卡号）
-    // ──────────────────────────────────────────────────────────
     /// <summary>
     /// 新增一行流程卡（打印预览页点击“新增一行”）.
     /// POST /GenerateFlowCard  入参：arrivalDetailId.

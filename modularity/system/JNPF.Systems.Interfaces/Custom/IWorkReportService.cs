@@ -33,5 +33,10 @@ namespace JNPF.Systems.Interfaces.Custom
         /// 结束生产（未完工流程卡保留，次日可继续报工）.
         /// </summary>
         Task<dynamic> EndProduction(string flowCardId);
+
+        /// <summary>
+        /// 修改报工结果（记录修改人和修改时间）.
+        /// </summary>
+        Task<dynamic> UpdateWorkReportResult([FromBody] WorkReportResultInput input);
     }
 }

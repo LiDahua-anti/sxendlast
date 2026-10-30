@@ -33,5 +33,20 @@ namespace JNPF.Systems.Interfaces.Custom
         /// 初始化流程卡工序流转（按订单排产明细生成各工序流转，PDA报工前调用）.
         /// </summary>
         Task<dynamic> InitFlowCardProcesses(string flowCardId);
+
+        /// <summary>
+        /// 流程卡不良处理（PDA生产过程中不良记录与处理）.
+        /// </summary>
+        Task<dynamic> HandleFlowCardDefect([FromBody] FlowCardDefectInput input);
+
+        /// <summary>
+        /// 流程卡不良记录列表（PDA查看历史不良记录）.
+        /// </summary>
+        Task<dynamic> GetFlowCardDefectList(string flowCardId);
+
+        /// <summary>
+        /// 流程卡作废.
+        /// </summary>
+        Task<dynamic> CancelFlowCard(string id);
     }
 }

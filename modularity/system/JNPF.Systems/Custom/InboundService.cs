@@ -346,12 +346,14 @@ namespace JNPF.Systems.Custom
             }
         }
 
+        #region PDA接口
+
         /// <summary>
         /// 到货待入库明细（PDA采购入库扫到货单号带出，逐项核对）.
         /// </summary>
         /// <param name="arrivalNo">到货单号.</param>
         /// <returns>待入库明细列表.</returns>
-        [HttpGet("GetPendingArrivalItems")]
+        [HttpGet("pad/GetPendingArrivalItems")]
         public async Task<dynamic> GetPendingArrivalItems(string arrivalNo)
         {
             if (arrivalNo.IsNullOrEmpty())
@@ -398,7 +400,7 @@ namespace JNPF.Systems.Custom
         /// </summary>
         /// <param name="input">入库确认入参.</param>
         /// <returns>入库结果.</returns>
-        [HttpPost("PurchaseIn")]
+        [HttpPost("pad/PurchaseIn")]
         public async Task<dynamic> PurchaseIn([FromBody] PurchaseInInput input)
         {
             if (input.Qty <= 0)
@@ -547,7 +549,7 @@ namespace JNPF.Systems.Custom
         /// </summary>
         /// <param name="input">入库确认入参.</param>
         /// <returns>入库结果.</returns>
-        [HttpPost("ProductIn")]
+        [HttpPost("pad/ProductIn")]
         public async Task<dynamic> ProductIn([FromBody] ProductInInput input)
         {
             if (input.FlowCardId.IsNullOrEmpty())
@@ -677,7 +679,7 @@ namespace JNPF.Systems.Custom
         /// </summary>
         /// <param name="input">入库确认入参.</param>
         /// <returns>入库结果.</returns>
-        [HttpPost("OtherIn")]
+        [HttpPost("pad/OtherIn")]
         public async Task<dynamic> OtherIn([FromBody] OtherInInput input)
         {
             if (input.Qty <= 0)
@@ -766,6 +768,8 @@ namespace JNPF.Systems.Custom
                 Message = "其它入库成功，库存已更新并推送用友（模拟）"
             };
         }
+
+        #endregion
 
         /// <summary>
         /// 入库单管理列表（分采购入库/产成品入库/其他入库）.

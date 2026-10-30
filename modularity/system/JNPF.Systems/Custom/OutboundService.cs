@@ -330,13 +330,15 @@ namespace JNPF.Systems.Custom
             }
         }
 
+        #region PDA接口
+
         /// <summary>
         /// PDA出库确认（销售出库/其他出库；先进先出自动锁定最早批次库位；
         /// 销售出库勾稽：已出+本次 ≤ 报工良品 ≤ 流程卡定量；多批次扣减生成多行出库单明细）.
         /// </summary>
         /// <param name="input">出库确认入参.</param>
         /// <returns>出库结果.</returns>
-        [HttpPost("OutConfirm")]
+        [HttpPost("pad/OutConfirm")]
         public async Task<dynamic> OutConfirm([FromBody] OutConfirmInput input)
         {
             if (input.Qty <= 0)
@@ -491,6 +493,8 @@ namespace JNPF.Systems.Custom
                 Message = $"出库成功，先进先出已锁定最早批次库位（{deductItems.Count} 个批次，库位 {string.Join("、", deductItems.Select(m => m.LocationCode).Distinct())}）"
             };
         }
+
+        #endregion
 
         /// <summary>
         /// 出库单管理列表（分销售出库/材料出库/其他出库）.

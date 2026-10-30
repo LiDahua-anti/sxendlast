@@ -242,13 +242,15 @@ namespace JNPF.Systems.Custom
             };
         }
 
+        #region PDA接口
+
         /// <summary>
         /// PDA领料前校验上下文（前道工序完成校验 + 齐套校验 + FIFO提示）.
         /// </summary>
         /// <param name="flowCardId">流程卡ID.</param>
         /// <param name="processId">工序ID（可空取首道工序）.</param>
         /// <returns>校验上下文.</returns>
-        [HttpGet("GetPickContext")]
+        [HttpGet("pad/GetPickContext")]
         public async Task<dynamic> GetPickContext(string flowCardId, string processId)
         {
             if (flowCardId.IsNullOrEmpty())
@@ -339,7 +341,7 @@ namespace JNPF.Systems.Custom
         /// </summary>
         /// <param name="input">领料确认入参.</param>
         /// <returns>领料结果.</returns>
-        [HttpPost("PdaPick")]
+        [HttpPost("pad/PdaPick")]
         public async Task<dynamic> PdaPick([FromBody] PdaPickInput input)
         {
             if (input.FlowCardId.IsNullOrEmpty())
@@ -560,6 +562,8 @@ namespace JNPF.Systems.Custom
                 Message = $"领料成功（FIFO最早批次 {firstDeduct.BatchNo}，库位 {firstDeduct.LocationCode}）；已自动生成材料出库记录 {outNo}；{kittingMsg}"
             };
         }
+
+        #endregion
 
         /// <summary>
         /// 获取流程卡订单（可空）.

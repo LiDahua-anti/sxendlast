@@ -94,6 +94,7 @@ public static class SqlSugarConfigureExtensions
             //db.CodeFirst.InitTables(typeof(FlowCardEntity));
             //db.CodeFirst.InitTables(typeof(FlowCardProcessEntity));
             //db.CodeFirst.InitTables(typeof(FlowCardRelationEntity));
+            //db.CodeFirst.InitTables(typeof(FlowCardDefectEntity));
 
             //// 报工
             //db.CodeFirst.InitTables(typeof(WorkReportEntity));

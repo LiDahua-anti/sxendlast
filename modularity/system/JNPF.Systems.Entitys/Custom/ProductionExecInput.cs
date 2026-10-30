@@ -384,6 +384,83 @@ public class FlowCardScanOutput
     public List<FlowCardProcessItemDto> Processes { get; set; } = new List<FlowCardProcessItemDto>();
 }
 
+/// <summary>
+/// 流程卡不良处理入参（PDA生产过程中不良记录与处理）.
+/// </summary>
+public class FlowCardDefectInput
+{
+    /// <summary>
+    /// 流程卡ID.
+    /// </summary>
+    public string FlowCardId { get; set; }
+
+    /// <summary>
+    /// 流程卡工序流转ID.
+    /// </summary>
+    public string CardProcessId { get; set; }
+
+    /// <summary>
+    /// 不良类型：材料不良/加工不良/其他.
+    /// </summary>
+    public string DefectType { get; set; }
+
+    /// <summary>
+    /// 不良数量.
+    /// </summary>
+    public decimal DefectQty { get; set; }
+
+    /// <summary>
+    /// 不良描述.
+    /// </summary>
+    public string DefectDescription { get; set; }
+
+    /// <summary>
+    /// 处理方式：1报废 2返工 3让步接收.
+    /// </summary>
+    public int Disposition { get; set; } = 1;
+
+    /// <summary>
+    /// 处理说明.
+    /// </summary>
+    public string HandleRemark { get; set; }
+}
+
+/// <summary>
+/// 流程卡不良处理输出.
+/// </summary>
+public class FlowCardDefectOutput
+{
+    /// <summary>
+    /// 不良记录ID.
+    /// </summary>
+    public string DefectId { get; set; }
+
+    /// <summary>
+    /// 流程卡号.
+    /// </summary>
+    public string CardNo { get; set; }
+
+    /// <summary>
+    /// 工序名称.
+    /// </summary>
+    public string ProcessName { get; set; }
+
+    /// <summary>
+    /// 不良数量.
+    /// </summary>
+    public decimal DefectQty { get; set; }
+
+    /// <summary>
+    /// 处理方式名称.
+    /// </summary>
+    public string DispositionName { get; set; }
+
+    /// <summary>
+    /// 提示消息.
+    /// </summary>
+    public string Message { get; set; }
+}
+
 #endregion
 
 #region 报工记录（三层级/PDA报工/检包检验）
@@ -1092,6 +1169,57 @@ public class WorkReportEndOutput
     /// 提示消息.
     /// </summary>
     public string Message { get; set; }
+}
+
+/// <summary>
+/// 修改报工结果入参（记录修改人和修改时间）.
+/// </summary>
+public class WorkReportResultInput
+{
+    /// <summary>
+    /// 报工明细主键.
+    /// </summary>
+    public string Id { get; set; }
+
+    /// <summary>
+    /// 良品数（可空，不修改）.
+    /// </summary>
+    public decimal? GoodQty { get; set; }
+
+    /// <summary>
+    /// 不良数（可空，不修改）.
+    /// </summary>
+    public decimal? BadQty { get; set; }
+
+    /// <summary>
+    /// 工时（可空，不修改）.
+    /// </summary>
+    public decimal? WorkHours { get; set; }
+
+    /// <summary>
+    /// 设备名称（可空，不修改）.
+    /// </summary>
+    public string DeviceName { get; set; }
+
+    /// <summary>
+    /// 工位（可空，不修改）.
+    /// </summary>
+    public string Station { get; set; }
+
+    /// <summary>
+    /// 开始时间（可空，不修改）.
+    /// </summary>
+    public DateTime? StartTime { get; set; }
+
+    /// <summary>
+    /// 结束时间（可空，不修改）.
+    /// </summary>
+    public DateTime? EndTime { get; set; }
+
+    /// <summary>
+    /// 备注（可空，不修改）.
+    /// </summary>
+    public string Remark { get; set; }
 }
 
 #endregion

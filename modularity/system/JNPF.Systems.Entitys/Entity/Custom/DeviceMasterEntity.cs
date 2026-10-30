@@ -115,19 +115,6 @@ namespace JNPF.Systems.Entitys.Entity.Custom
         [SugarColumn(ColumnName = "device_image", ColumnDescription = "/// 制作品外观 ///")]
         public string? DeviceImage { get; set; }
 
-
-        /// <summary>
-        /// 产线名称
-        /// </summary>
-        [SugarColumn(ColumnName = "production_line_name", ColumnDescription = "/// 产线名称 ///")]
-        public string? ProductionLineName { get; set; }
-
-        /// <summary>
-        /// 产线编号
-        /// </summary>
-        [SugarColumn(ColumnName = "production_line_no", ColumnDescription = "/// 产线编号 ///")]
-        public string? ProductionLineNo { get; set; }
-
         /// <summary>
         /// 控制盘编号
         /// </summary>
@@ -164,25 +151,5 @@ namespace JNPF.Systems.Entitys.Entity.Custom
         [SugarColumn(ColumnName = "gateway_ip", ColumnDescription = "/// 网关IP地址 ///")]
         public string? GatewayIP { get; set; }
 
-
-        /// <summary>
-        /// 流程引擎Id
-        /// </summary>
-        [SugarColumn(ColumnName = "f_flow_id", Length = 200, IsNullable = true, ColumnDescription = "/// 流程引擎Id ///")]
-        [StringLength(50)]
-        public string FFlowId { get; set; }
-
-        /// <summary>
-        /// 流程任务Id
-        /// </summary>
-        [SugarColumn(ColumnName = "f_flow_task_id", Length = 200, IsNullable = true, ColumnDescription = "/// 流程任务Id ///")]
-        [StringLength(50)]
-        public string FFlowTaskId { get; set; }
-
-        /// <summary>
-        /// 集成助手数据标识
-        /// </summary>
-        [SugarColumn(ColumnName = "f_inte_assistant", IsNullable = true, ColumnDescription = "/// 集成助手数据标识 ///")]
-        public int FInteAssistant { get; set; }
     }
 }

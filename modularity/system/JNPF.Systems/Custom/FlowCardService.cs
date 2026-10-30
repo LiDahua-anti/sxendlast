@@ -57,6 +57,11 @@ namespace JNPF.Systems.Custom
         private readonly ISqlSugarRepository<BaseProcessEntity> _baseProcessRepository;
 
         /// <summary>
+        /// 流程卡不良记录仓储.
+        /// </summary>
+        private readonly ISqlSugarRepository<FlowCardDefectEntity> _defectRepository;
+
+        /// <summary>
         /// 用户管理器.
         /// </summary>
         private readonly IUserManager _userManager;
@@ -71,6 +76,7 @@ namespace JNPF.Systems.Custom
             ISqlSugarRepository<ProductionScheduleEntity> scheduleRepository,
             ISqlSugarRepository<ProductionScheduleDetailEntity> scheduleDetailRepository,
             ISqlSugarRepository<BaseProcessEntity> baseProcessRepository,
+            ISqlSugarRepository<FlowCardDefectEntity> defectRepository,
             IUserManager userManager)
         {
             _flowCardRepository = flowCardRepository;
@@ -79,6 +85,7 @@ namespace JNPF.Systems.Custom
             _scheduleRepository = scheduleRepository;
             _scheduleDetailRepository = scheduleDetailRepository;
             _baseProcessRepository = baseProcessRepository;
+            _defectRepository = defectRepository;
             _userManager = userManager;
         }
 
@@ -385,7 +392,7 @@ namespace JNPF.Systems.Custom
         /// </summary>
         /// <param name="cardNo">流程卡号.</param>
         /// <returns>卡信息与工序流转.</returns>
-        [HttpGet("GetFlowCardByCardNo")]
+        [HttpGet("pad/GetFlowCardByCardNo")]
         public async Task<dynamic> GetFlowCardByCardNo(string cardNo)
         {
             if (cardNo.IsNullOrEmpty())
@@ -455,7 +462,7 @@ namespace JNPF.Systems.Custom
         /// </summary>
         /// <param name="flowCardId">流程卡主键.</param>
         /// <returns>初始化结果.</returns>
-        [HttpGet("InitFlowCardProcesses")]
+        [HttpGet("pad/InitFlowCardProcesses")]
         public async Task<dynamic> InitFlowCardProcesses(string flowCardId)
         {
             if (flowCardId.IsNullOrEmpty())
@@ -533,6 +540,186 @@ namespace JNPF.Systems.Custom
             }
 
             return new { initialized = true, count = rows.Count, message = $"已初始化 {rows.Count} 道工序流转，PDA可开始报工" };
+        }
+
+        #endregion
+
+        #region PDA接口
+
+        /// <summary>
+        /// 流程卡不良处理（PDA生产过程中不良记录与处理；报废数量从流程卡可报工上限中扣减；记录修改人和时间）.
+        /// </summary>
+        /// <param name="input">不良处理入参.</param>
+        /// <returns>不良处理结果.</returns>
+        [HttpPost("pad/HandleFlowCardDefect")]
+        public async Task<dynamic> HandleFlowCardDefect([FromBody] FlowCardDefectInput input)
+        {
+            if (input.FlowCardId.IsNullOrEmpty())
+            {
+                throw Oops.Oh(ErrorCode.COM1018, "请扫描流程卡");
+            }
+
+            if (input.DefectQty <= 0)
+            {
+                throw Oops.Oh(ErrorCode.COM1018, "不良数量必须大于0");
+            }
+
+            var card = await _flowCardRepository.GetFirstAsync(m => m.Id == input.FlowCardId && m.DeleteMark == null);
+            if (card == null)
+            {
+                throw Oops.Oh(ErrorCode.COM1018, "流程卡不存在");
+            }
+
+            // 工序流转匹配
+            FlowCardProcessEntity cardProcess = null;
+            if (!input.CardProcessId.IsNullOrEmpty())
+            {
+                cardProcess = await _flowCardProcessRepository.GetFirstAsync(m => m.Id == input.CardProcessId && m.DeleteMark == null);
+            }
+
+            if (cardProcess == null)
+            {
+                throw Oops.Oh(ErrorCode.COM1018, "未找到对应工序流转，请确认工序");
+            }
+
+            var now = DateTime.Now;
+            var handlerName = _userManager.RealName;
+            var dispositionName = input.Disposition == 1 ? "报废" : input.Disposition == 2 ? "返工" : "让步接收";
+
+            // 不良记录
+            var defect = new FlowCardDefectEntity
+            {
+                FlowCardId = card.Id,
+                FlowCardNo = card.CardNo,
+                CardProcessId = cardProcess.Id,
+                ProcessId = cardProcess.ProcessId,
+                ProcessName = cardProcess.ProcessName,
+                DefectType = input.DefectType,
+                DefectQty = input.DefectQty,
+                DefectDescription = input.DefectDescription,
+                Disposition = input.Disposition,
+                HandleRemark = input.HandleRemark,
+                HandlerName = handlerName,
+                HandleTime = now,
+                OrderId = card.OrderId,
+                OrderNo = card.OrderNo
+            };
+
+            var insertOk = await _defectRepository.AsSugarClient().Insertable(defect)
+                .CallEntityMethod(m => m.Creator()).ExecuteCommandAsync();
+            if (!(insertOk > 0))
+            {
+                throw Oops.Oh(ErrorCode.COM1000);
+            }
+
+            // 报废处理：从流程卡可报工上限中扣减（目标数量减少）
+            if (input.Disposition == 1)
+            {
+                cardProcess.TargetQty = Math.Max(0, (cardProcess.TargetQty ?? 0) - input.DefectQty);
+                await _flowCardProcessRepository.AsSugarClient().Updateable(cardProcess)
+                    .CallEntityMethod(m => m.LastModify())
+                    .UpdateColumns(it => new { it.TargetQty, it.LastModifyTime, it.LastModifyUserId })
+                    .ExecuteCommandAsync();
+            }
+
+            return new FlowCardDefectOutput
+            {
+                DefectId = defect.Id,
+                CardNo = card.CardNo,
+                ProcessName = cardProcess.ProcessName,
+                DefectQty = input.DefectQty,
+                DispositionName = dispositionName,
+                Message = $"不良处理成功：{cardProcess.ProcessName} 不良 {input.DefectQty} 件，处理方式：{dispositionName}"
+            };
+        }
+
+        /// <summary>
+        /// 流程卡不良记录列表（PDA查看历史不良记录）.
+        /// </summary>
+        /// <param name="flowCardId">流程卡主键.</param>
+        /// <returns>不良记录列表.</returns>
+        [HttpGet("pad/GetFlowCardDefectList")]
+        public async Task<dynamic> GetFlowCardDefectList(string flowCardId)
+        {
+            if (flowCardId.IsNullOrEmpty())
+            {
+                throw Oops.Oh(ErrorCode.COM1007);
+            }
+
+            var defects = await _defectRepository.AsQueryable()
+                .Where(m => m.FlowCardId == flowCardId && m.DeleteMark == null)
+                .OrderBy(m => m.HandleTime, OrderByType.Desc)
+                .ToListAsync();
+
+            return defects.Select(m => new
+            {
+                m.Id,
+                m.FlowCardId,
+                m.FlowCardNo,
+                m.CardProcessId,
+                m.ProcessId,
+                m.ProcessName,
+                m.DefectType,
+                m.DefectQty,
+                m.DefectDescription,
+                m.Disposition,
+                DispositionName = m.Disposition == 1 ? "报废" : m.Disposition == 2 ? "返工" : "让步接收",
+                m.HandleRemark,
+                m.HandlerName,
+                m.HandleTime,
+                m.CreatorTime
+            }).ToList();
+        }
+
+        /// <summary>
+        /// 流程卡作废（PDA/WEB均可调用；仅「未使用」或「生产中」状态可作废；已入库/已作废不可操作）.
+        /// </summary>
+        /// <param name="id">流程卡主键.</param>
+        /// <returns>作废结果.</returns>
+        [HttpGet("pad/CancelFlowCard")]
+        public async Task<dynamic> CancelFlowCard(string id)
+        {
+            if (id.IsNullOrEmpty())
+            {
+                throw Oops.Oh(ErrorCode.COM1007);
+            }
+
+            var card = await _flowCardRepository.GetFirstAsync(m => m.Id == id && m.DeleteMark == null);
+            if (card == null)
+            {
+                throw Oops.Oh(ErrorCode.COM1018, "流程卡不存在");
+            }
+
+            if (card.Status == 4)
+            {
+                throw Oops.Oh(ErrorCode.COM1018, "已入库的流程卡不可作废");
+            }
+
+            if (card.Status == 5)
+            {
+                throw Oops.Oh(ErrorCode.COM1018, "该流程卡已作废，无需重复操作");
+            }
+
+            var oldStatus = card.Status;
+            card.Status = 5;
+            var updateOk = await _flowCardRepository.AsSugarClient().Updateable(card)
+                .CallEntityMethod(m => m.LastModify())
+                .UpdateColumns(it => new { it.Status, it.LastModifyTime, it.LastModifyUserId })
+                .ExecuteCommandAsync();
+
+            if (!(updateOk > 0))
+            {
+                throw Oops.Oh(ErrorCode.COM1000);
+            }
+
+            var statusName = oldStatus == 1 ? "未使用" : oldStatus == 2 ? "生产中" : oldStatus == 3 ? "已完工" : "未知";
+            return new
+            {
+                id = card.Id,
+                cardNo = card.CardNo,
+                oldStatus,
+                message = $"流程卡 {card.CardNo} 已作废（原状态：{statusName}）"
+            };
         }
 
         #endregion
