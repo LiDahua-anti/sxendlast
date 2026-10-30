@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using JNPF.Systems.Interfaces.Custom;
 using JNPF.DynamicApiController;
 using JNPF.DependencyInjection;
-using SqlSugar;
+using SqlSugar;   
 using JNPF.Common.Manager;
 using JNPF.Systems.Entitys.Dto.Custom;
 using JNPF.FriendlyException;
